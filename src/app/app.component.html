@@ -1,0 +1,18 @@
+<h1>AONA AHH</h1>
+
+<!-- <form action="">
+
+</form> -->
+
+<input id="nom">
+<input id="prenom">
+<input id="email">
+<input id="salaire">
+<button (click)="addQuotes()">Add Quotes</button>
+
+<h3 *ngFor="let quote of Quotes">
+  <b> *{{quote.nom}}</b>
+  <b> *{{quote.prenom}}</b>
+  <b> *{{quote.email}}</b>
+  <button (click)="deleteQuotes(quote.name)">Delete </button>
+</h3>
