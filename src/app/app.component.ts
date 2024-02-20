@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +10,6 @@ import { RouterModule, RouterOutlet, RouterLink, RouterLinkActive } from '@angul
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-
-  ngOnInit() {
-  }
   // title = 'Sallon_beaute';
   // readonly APIUrl = "http://localhost:3001/";
 
