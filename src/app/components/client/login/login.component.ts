@@ -19,8 +19,8 @@ export class ClientLoginComponent {
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      mdp: ['', Validators.required]
+      email: ['e.rakotoarison@email.com', [Validators.required, Validators.email]],
+      mdp: ['cli1', Validators.required]
     });
   }
 
