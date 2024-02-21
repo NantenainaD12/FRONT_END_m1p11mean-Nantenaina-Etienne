@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule,HttpHeaders } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 import { ApiUrlService } from '../../../services/tools/api-url.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employe-login-component',
@@ -15,12 +16,12 @@ import { ApiUrlService } from '../../../services/tools/api-url.service';
 export class EmployeLoginComponentComponent {
   loginForm!: FormGroup;
 
-  constructor(public fb: FormBuilder, public apiUrlService : ApiUrlService, public http:HttpClient) {}
+  constructor(public fb: FormBuilder, public apiUrlService : ApiUrlService, public http:HttpClient,private router: Router) {}
 
   ngOnInit() {
     this.loginForm = this.fb.group({
       email: ['TestUpadteid7.doe@example.com', [Validators.required, Validators.email]],
-      mdp: ['TestUpadteid7', Validators.required]
+      mdp: ['TestUpadteid7.doe@example.com', Validators.required]
     });
   }
 
@@ -34,16 +35,21 @@ export class EmployeLoginComponentComponent {
         .pipe(
           catchError(error => {
             const jsonData = JSON.stringify(error);
-            const errorMessage = JSON.parse(jsonData).error;
+            const errorMessage = JSON.parse(jsonData).message;
             alert(errorMessage);
             return throwError(error);
           })
         )
         .subscribe(data => {
           const jsonData = JSON.stringify(data);
-          const name = JSON.parse(jsonData).employee.nom;
-          alert(name);
+          const id_emp = JSON.parse(jsonData).employee.idEmploye;
+          const token = JSON.parse(jsonData).token;
+          localStorage.setItem('token', token);
+          localStorage.setItem('idEmploye', id_emp);
+          this.router.navigate(['/all_rdv_for_me']);
         });
     }
   }
+
+
 }
