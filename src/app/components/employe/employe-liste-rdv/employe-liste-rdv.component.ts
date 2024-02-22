@@ -43,7 +43,26 @@ export class EmployeListeRdvComponent {
         console.log(rdv);
       }
     });
-    
-
   }
+
+  UpdateEtatRdv(idRdv: Number) {
+    const token = localStorage.getItem('token');
+
+    const url = this.apiUrlService.getUrl() + 'Employe/updateEtatFini/' + idRdv;
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    // Préparez le corps de la requête avec etatFini
+    const body = { etatFini: true };
+
+    // Effectuez la requête PUT
+    this.http.put(url, body, { headers })
+    .subscribe((data: any) => {
+        console.log(data);
+        this.GetAllRDV();
+    }, (error) => {
+        console.error('Erreur lors de la mise à jour de etatFini :', error);
+    });
+}
+
 }

@@ -31,6 +31,8 @@ export class EmployeLoginComponentComponent {
       var formData = new FormData();
       formData.append("email", email);
       formData.append("mdp", mdp);
+      console.log(this.apiUrlService.getUrl() + 'Employe/LoginEmployee');
+      
       this.http.post(this.apiUrlService.getUrl() + 'Employe/LoginEmployee', formData)
         .pipe(
           catchError(error => {

@@ -49,9 +49,9 @@
                                                         <li><a href="single-blog.html">single-blog</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">pages <i class="ti-angle-down"></i></a>
+                                                <li><a href="#"> Profil <i class="ti-angle-down"></i></a>
                                                     <ul class="submenu">
-                                                        <li><a href="about.html">about</a></li>
+                                                        <li><a routerLink="/ManageprofilComponent">Manage </a></li>
                                                         <li><a href="elements.html">elements</a></li>
                                                     </ul>
                                                 </li>
@@ -188,21 +188,22 @@
                 </div>
                 <div class="col-lg-4 col-md-6" *ngFor="let rdv of dataSource">
                     <div class="single_service">
-                      <div class="service_thumb">
-                        <img src="assets/img/service/2.png" alt="">
-                      </div>
-                      <div class="service_content text-center">
-                        <div class="icon">
-                          <i class="flaticon-barber"></i>
+                        <div class="service_thumb">
+                            <img src="assets/img/service/2.png" alt="">
                         </div>
-                        <h3>{{rdv._idRdv}}</h3> <!-- Utilisez une propriété de 'rdv' ici -->
-                        <p>Date Heure Debut: {{rdv.dateHeureDebut}}</p>
-                        <p>Date Heure Fin: {{rdv.dateHeureFin}}</p>
-                        <!-- Ajoutez plus de propriétés de 'rdv' si nécessaire -->
-                      </div>
+                        <div class="service_content text-center">
+                            <div class="icon">
+                                <i class="flaticon-barber"></i>
+                            </div>
+                            <h3>{{rdv._idRdv}}</h3> <!-- Utilisez une propriété de 'rdv' ici -->
+                            <p>Date Heure Debut: {{rdv.dateHeureDebut}}</p>
+                            <p>Date Heure Fin: {{rdv.dateHeureFin}}</p>
+                            <!-- Ajoutez plus de propriétés de 'rdv' si nécessaire -->
+                            <button (click)="UpdateEtatRdv(rdv._idRdv)">Mettre à jour etatFini</button>
+                        </div>
                     </div>
-                  </div>
-                  
+                </div>
+                
                 <div class="col-lg-4 col-md-6">
                     <div class="single_service">
                          <div class="service_thumb">
@@ -851,6 +852,8 @@
                     </div>
                 </div>
         </form>
+
+     
 <!-- form itself end -->
 
     <!-- JS here -->
