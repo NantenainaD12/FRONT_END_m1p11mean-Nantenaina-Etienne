@@ -40,6 +40,7 @@ export class ClientLoginComponent {
           })
         )
         .subscribe(data => {
+          localStorage.setItem('client', JSON.stringify(data));
           this.router.navigate(['client_homepage']);
         });
     }

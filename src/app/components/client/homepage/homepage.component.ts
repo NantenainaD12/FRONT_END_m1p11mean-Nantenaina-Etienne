@@ -13,23 +13,18 @@ import { ApiUrlService } from '../../../services/tools/api-url.service';
   styleUrls: ['./homepage.component.css']
 })
 export class ClientHomepageComponent {
+  client = JSON.parse(localStorage.getItem('client') ?? '{}');
 
   constructor(public fb: FormBuilder, public apiUrlService : ApiUrlService, public http:HttpClient, public router : Router) {}
 
   ngOnInit() {
-    this.http.get(this.apiUrlService.getUrl() + 'client/homepage')
-        .pipe(
-          catchError(error => {
-            const jsonData = JSON.stringify(error);
-            const errorMessage = JSON.parse(jsonData).error;
-            alert(errorMessage);
-            return throwError(error);
-          })
-        )
-        .subscribe(data => {
-          const jsonData = JSON.stringify(data);
-          const value = JSON.parse(jsonData).telephone;
-          console.log(value);
-        });
+    console.log('client :>> ', this.client._idClient);
+    // this.http.get(this.apiUrlService.getUrl() + 'client/homepage', {
+    //   withCredentials: true
+    // }).subscribe((resp: any) => {
+    //   console.log(resp);
+    // }, (errorResp) => {
+    //   console.log('Oops, something went wrong getting the logged in status');
+    // })
   }
 }
