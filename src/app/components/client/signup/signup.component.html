@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+</head>
+
+<body>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <label for="nom">Nom:</label>
+        <input type="text" formControlName="nom" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" formControlName="email" required>
+        <br>
+        <label for="mdp">Mot de passe:</label>
+        <input type="password" formControlName="mdp" required>
+        <br>
+        <label for="pdp">Photo de profil:</label>
+        <input type="text" formControlName="pdp" required>
+        <br>
+        <label for="telephone">Telephone:</label>
+        <input type="text" formControlName="telephone" required>
+        <br>
+        <button type="submit">S'inscrire</button>
+    </form>
+    <hr/>
+    <a routerLink="/client_login">Se connecter</a>
+    <router-outlet></router-outlet>
+</body>
+
+</html>

@@ -9,7 +9,19 @@
 </head>
 
 <body>
-    <h1>Client homepage</h1>
+    <h3>Client homepage</h3>
+    <p>{{ client._idClient }}</p>
+    <p>{{ client.nom }}</p>
+    <p>{{ client.email }}</p>
+    <p>{{ client.pdp }}</p>
+    <p>{{ client.telephone }}</p>
+
+    <h2>Date d'aujourd'hui : {{ today | date:'medium' }}</h2>
+    <h3>Offres speciales</h3>
+    <ul>
+        <li *ngFor="let special_offer of special_offers_notifications">{{ special_offer.pourcentageRemise }} {{ special_offer.dateDebut | date:'medium' }} {{ special_offer.dateFin | date:'medium' }} {{ special_offer.description }}</li>
+    </ul>
+
     <a routerLink="/client_logout">Deconnecter</a>
     <router-outlet></router-outlet>
 </body>
