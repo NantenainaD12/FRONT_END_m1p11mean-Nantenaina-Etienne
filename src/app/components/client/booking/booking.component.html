@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+</head>
+
+<body>
+    <h3>Client</h3>
+    <p>{{ client._idClient }}</p>
+    <p>{{ client.nom }}</p>
+    <p>{{ client.email }}</p>
+    <img src='{{ client.pdp }}' alt="..." width="100px">
+    <p>{{ client.telephone }}</p>
+    <hr/>
+    <h3>Reservation</h3>
+    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+        <label for="dateHeureDebut">Date et heure : &nbsp;</label>
+        <input type="date" formControlName="dateDebut" required>&nbsp;<input type="time" formControlName="heureDebut" required>
+        <br>
+        <label for="idEmploye">Employé responsable : &nbsp;</label>
+        <a *ngFor="let employe of employes">
+            <input type="radio" id="{{ employe.idEmploye }}" formControlName="idEmploye" value="{{ employe.idEmploye }}">
+            <label for="{{ employe.idEmploye }}">{{ employe.nom }}</label>
+        </a>
+        <br>
+        <label for="idServices">Services : &nbsp;</label>
+        <a *ngFor="let service of services">
+            <input type="checkbox" id="service{{ service._idService }}" formControlName="idServices" value="{{ service._idService }}">
+            <label for="service{{ service._idService }}">{{ service.description }} ({{ service.prix }}Ar - {{ service.dureeMinute }}min)</label>
+        </a>
+        <br>
+        <button type="submit">Reserver</button>
+    </form>
+    <hr/>
+    <a routerLink="/client_signup">Inscription</a>&nbsp;<a routerLink="">Main</a>
+    <router-outlet></router-outlet>
+</body>
+
+</html>
