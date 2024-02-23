@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+</head>
+
+<body>
+    <h3>Client - Historique des rendez-vous</h3>
+    <p>{{ client.nom }}</p>
+    <p>{{ client.email }}</p>
+    <img src='{{ client.pdp }}' alt="..." width="100px">
+    <p>{{ client.telephone }}</p>
+    <hr/>
+    <h3>Historiques</h3>
+    <ul>
+        <h4>Rendez-vous</h4>
+        <li *ngFor="let historique of historiques">
+            <p>Date debut: {{ historique.rdv.dateHeureDebut | date:'medium' }}</p>
+            <p>Date fin: {{ historique.rdv.dateHeureFin | date:'medium' }}</p>
+            <p>Etat: {{ historique.rdv.etatFini ? 'Fini' : 'Pas encore fini' }}</p>
+            <p>Montant: {{ historique.rdv.etatFini ? historique.rdv.montantTotalPaye + 'Ar payé le ' + (historique.rdv.datePayement | date:'medium') : historique.rdv.montantTotalPaye + 'Ar à payer' }}</p>
+            <p>Employé responsable: {{ historique.employe.nom }} ({{ historique.employe.email }})</p>
+            <ul>
+                <h5>Détails des services</h5>
+                <li *ngFor="let h_service of historique.services">
+                    <p>Service: {{ h_service.service.description }}</p>
+                    <p>Durée: {{ h_service.service.dureeMinute }}min</p>
+                    <p>Prix normal: {{ h_service.rdvservice.prixNormal }}Ar</p>
+                    <p>Prix après remise: {{ h_service.rdvservice.prixApresRemise }}Ar</p>
+                    <span *ngIf="h_service.offrespeciale !== null">
+                        <h5>Détails de la remise</h5>
+                        <p>Date debut: {{ h_service.offrespeciale.dateDebut | date:'medium' }}</p>
+                        <p>Date fin: {{ h_service.offrespeciale.dateFin | date:'medium' }}</p>
+                        <p>Description: {{ h_service.offrespeciale.description }}</p>
+                        <p>Remise: -{{ h_service.offrespeciale.pourcentageRemise * 100 }}%</p>
+                    </span>
+                </li>
+            </ul>
+            <br/>
+        </li>
+    </ul>
+
+    <a routerLink="/client_booking">Reservation</a>&nbsp;<a routerLink="/client_appointment_history">Historique des rendez-vous</a>&nbsp;<a routerLink="/client_logout">Deconnecter</a>
+    <router-outlet></router-outlet>
+</body>
+
+</html>
