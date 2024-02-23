@@ -19,7 +19,10 @@
     <h2>Date d'aujourd'hui : {{ today | date:'medium' }}</h2>
     <h3>Offres speciales</h3>
     <ul>
-        <li *ngFor="let special_offer of special_offers_notifications">{{ special_offer.pourcentageRemise }} {{ special_offer.dateDebut | date:'medium' }} {{ special_offer.dateFin | date:'medium' }} {{ special_offer.description }}</li>
+        <li *ngFor="let special_offer of special_offers_notifications">
+            {{ special_offer.offreSpeciale.dateDebut | date:'medium' }} {{ special_offer.offreSpeciale.dateFin | date:'medium' }} {{ special_offer.offreSpeciale.description }} |
+            {{ special_offer.service.commission }} {{ special_offer.service.description }} -{{ special_offer.offreSpeciale.pourcentageRemise * 100  }}% {{ special_offer.service.prix  }} {{ special_offer.service.prix * (1 - special_offer.offreSpeciale.pourcentageRemise) }}
+        </li>
     </ul>
 
     <a routerLink="/client_logout">Deconnecter</a>

@@ -45,6 +45,7 @@ export class ClientHomepageComponent {
         )
         .subscribe(data => {
           this.special_offers_notifications = JSON.parse(JSON.stringify(data));
+          console.log('this.special_offers_notifications :>> ', this.special_offers_notifications);
         });
   }
 }

@@ -22,11 +22,11 @@ export class ClientSignupComponent {
 
   ngOnInit() {
     this.signupForm = this.fb.group({
-      nom: ['haha', Validators.required],
-      email: ['haha@mail.com', [Validators.required, Validators.email]],
-      mdp: ['123', Validators.required],
+      nom: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      mdp: ['', Validators.required],
       pdp: ['', Validators.required],
-      telephone: ['123', Validators.required]
+      telephone: ['', Validators.required]
     });
   }
 
