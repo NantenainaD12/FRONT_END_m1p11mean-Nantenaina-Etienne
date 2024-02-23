@@ -14,28 +14,50 @@ import { ApiUrlService } from '../../../services/tools/api-url.service';
 })
 export class ClientSignupComponent {
   signupForm!: FormGroup;
+  file: any;
+  filename: any;
+  reader = new FileReader();
 
   constructor(public fb: FormBuilder, public apiUrlService : ApiUrlService, public http:HttpClient, public router : Router) {}
 
   ngOnInit() {
     this.signupForm = this.fb.group({
-      nom: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      mdp: ['', Validators.required],
+      nom: ['haha', Validators.required],
+      email: ['haha@mail.com', [Validators.required, Validators.email]],
+      mdp: ['123', Validators.required],
       pdp: ['', Validators.required],
-      telephone: ['', Validators.required]
+      telephone: ['123', Validators.required]
     });
+  }
+
+  onSelectFile(event: any) {
+    this.file = event.target.files[0];
+    if(this.file) {
+      const allowedTypes = ['image/jpeg', 'image/png'];
+      if (!allowedTypes.includes(this.file.type)) {
+        alert("Invalid file type. Only images allowed");
+        this.signupForm = this.fb.group({
+          pdp: ['', Validators.required],
+        });
+      } else {
+        this.reader.readAsDataURL(this.file);
+        this.reader.onloadend = () => {
+          this.filename = this.reader.result as string;
+        }
+      }
+    }
   }
 
   onSubmit() {
     if (this.signupForm.valid) {
-      const { nom, email, mdp, pdp, telephone } = this.signupForm.value;
+      const { nom, email, mdp, telephone } = this.signupForm.value;
       var formData = new FormData();
       formData.append("nom", nom);
       formData.append("email", email);
       formData.append("mdp", mdp);
-      formData.append("pdp", pdp);
+      formData.append("pdp", this.filename);
       formData.append("telephone", telephone);
+      console.log('formData :>> ', formData);
       this.http.post(this.apiUrlService.getUrl() + 'client/signup', formData)
         .pipe(
           catchError(error => {
@@ -50,7 +72,7 @@ export class ClientSignupComponent {
           this.router.navigate(['/client_login']);
         });
     } else {
-      alert("Please fill in correctly")
+      alert("Please fill in correctly");
     }
   }
 }

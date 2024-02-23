@@ -13,7 +13,7 @@
     <p>{{ client._idClient }}</p>
     <p>{{ client.nom }}</p>
     <p>{{ client.email }}</p>
-    <p>{{ client.pdp }}</p>
+    <img src='{{ client.pdp }}' alt="..." width="100px">
     <p>{{ client.telephone }}</p>
 
     <h2>Date d'aujourd'hui : {{ today | date:'medium' }}</h2>

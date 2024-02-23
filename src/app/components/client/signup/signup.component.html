@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
         <label for="nom">Nom:</label>
         <input type="text" formControlName="nom" required>
         <br>
@@ -20,7 +20,7 @@
         <input type="password" formControlName="mdp" required>
         <br>
         <label for="pdp">Photo de profil:</label>
-        <input type="text" formControlName="pdp" required>
+        <input type="file" formControlName="pdp" required (change)="onSelectFile($event)">
         <br>
         <label for="telephone">Telephone:</label>
         <input type="text" formControlName="telephone" required>
