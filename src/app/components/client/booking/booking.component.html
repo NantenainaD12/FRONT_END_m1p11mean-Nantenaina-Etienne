@@ -28,15 +28,15 @@
         </a>
         <br>
         <label for="idServices">Services : &nbsp;</label>
-        <a *ngFor="let service of services">
-            <input type="checkbox" id="service{{ service._idService }}" formControlName="idServices" value="{{ service._idService }}">
+        <a *ngFor="let service of services; let i=index">
+            <input type="checkbox" [value]="service._idService" (change)="onChange($event)">
             <label for="service{{ service._idService }}">{{ service.description }} ({{ service.prix }}Ar - {{ service.dureeMinute }}min)</label>
         </a>
         <br>
         <button type="submit">Reserver</button>
     </form>
     <hr/>
-    <a routerLink="/client_signup">Inscription</a>&nbsp;<a routerLink="">Main</a>
+    <a routerLink="/client_homepage">Homepage</a>&nbsp;<a routerLink="/client_logout">Deconnecter</a>
     <router-outlet></router-outlet>
 </body>
 

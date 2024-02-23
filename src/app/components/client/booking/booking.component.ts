@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 import { ApiUrlService } from '../../../services/tools/api-url.service';
@@ -21,6 +21,22 @@ export class ClientBookingComponent {
 
   constructor(public fb: FormBuilder, public apiUrlService : ApiUrlService, public http:HttpClient, public router : Router) {}
 
+  onChange(e: any) {
+    const idServices: FormArray = this.bookingForm.get('idServices') as FormArray;
+    if (e.target.checked) {
+      idServices.push(new FormControl(parseInt(e.target.value, 10)));
+    } else {
+      let i: number = 0;
+      idServices.controls.forEach((item: AbstractControl) => {
+        if (item.value == e.target.value) {
+          idServices.removeAt(i);
+          return;
+        }
+        i++;
+      });
+    }
+  }
+
   ngOnInit() {
     this.getServices();
     this.getEmployes();
@@ -28,7 +44,7 @@ export class ClientBookingComponent {
       dateDebut: ['', Validators.required],
       heureDebut: ['', Validators.required],
       idEmploye: ['', Validators.required],
-      idServices: [, Validators.required]
+      idServices: this.fb.array([])
     });
   }
 
@@ -63,28 +79,25 @@ export class ClientBookingComponent {
   }
 
   onSubmit() {
-    if (this.bookingForm.valid) {
+    if (this.bookingForm.valid && this.bookingForm.value.idServices.length > 0) {
       const { dateDebut, heureDebut, idEmploye, idServices } = this.bookingForm.value;
       var formData = new FormData();
-      formData.append("dateDebut", dateDebut);
-      formData.append("heureDebut", heureDebut);
+      formData.append("dateHeureDebut", dateDebut + "T" + heureDebut + ":00");
       formData.append("idEmploye", idEmploye);
       formData.append("idServices", idServices);
-      console.log('formData :>> ', formData);
-      
-      // this.http.post(this.apiUrlService.getUrl() + 'client/signin', formData)
-      //   .pipe(
-      //     catchError(error => {
-      //       const jsonData = JSON.stringify(error);
-      //       const errorMessage = JSON.parse(jsonData).error;
-      //       alert(errorMessage);
-      //       return throwError(error);
-      //     })
-      //   )
-      //   .subscribe(data => {
-      //     localStorage.setItem('client', JSON.stringify(data));
-      //     this.router.navigate(['client_homepage']);
-      //   });
+      this.http.post(this.apiUrlService.getUrl() + 'client/appointment_booking?idClient=' + this.client._idClient, formData)
+        .pipe(
+          catchError(error => {
+            const jsonData = JSON.stringify(error);
+            const errorMessage = JSON.parse(jsonData).error;
+            alert(errorMessage);
+            return throwError(error);
+          })
+        )
+        .subscribe(data => {
+          const newRdv = JSON.parse(JSON.stringify(data));
+          console.log('newRdv :>> ', newRdv);
+        });
     } else {
       alert("Please fill in correctly");
     }
