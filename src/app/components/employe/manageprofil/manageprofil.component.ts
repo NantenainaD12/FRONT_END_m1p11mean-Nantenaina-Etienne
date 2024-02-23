@@ -35,17 +35,50 @@ export class ManageprofilComponent {
     this.http.post(url, this.employee, { headers })
       .subscribe((data: any) => {
         alert("Modification saved successfully");
-        this.employee = {
-          nom: '',
-          email: '',
-          mdp: '',
-          pdp: '',
-          horaireDebut: '',
-          horaireFin: ''
-        };
+        this.getEmployeeData();
       }, (error) => {
         console.error('Erreur lors de la mise à jour de l\'employé :', error);
       });
   }
 
+  ngOnInit() {
+    this.getEmployeeData();
+  }
+
+  getEmployeeData() {
+    const idEmploye = localStorage.getItem('idEmploye');
+    const url = this.apiUrlService.getUrl() + 'Employe/getEmployeById/' + idEmploye;
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    this.http.get(url, { headers })
+      .subscribe((data: any) => {
+        if (data && data.length > 0) {
+          this.employee = data[0];
+        } else {
+          console.error('Aucun employé trouvé avec cet idEmploye');
+        }
+      }, (error) => {
+        console.error('Erreur lors de la récupération des données de l\'employé :', error);
+      });
+  }
+
+//   handleFileInput(event: Event) {
+//     const target = event.target as HTMLInputElement;
+//     if (target.files && target.files.length > 0) {
+//         this.fileToUpload = target.files.item(0);
+//         if (this.fileToUpload) {
+//             var reader = new FileReader();
+//             reader.onload = this._handleReaderLoaded.bind(this);
+//             reader.readAsBinaryString(this.fileToUpload);
+//         }
+//     }
+// }
+//   _handleReaderLoaded(readerEvt: ProgressEvent<FileReader>) {
+//     if (readerEvt.target) {
+//         var binaryString = readerEvt.target.result;
+//         if (typeof binaryString === 'string') {
+//             this.employee.pdp = btoa(binaryString);  // Converting binary string data.
+//         }
+//     }
+// }
 }

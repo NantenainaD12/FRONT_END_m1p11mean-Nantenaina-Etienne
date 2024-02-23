@@ -1,0 +1,29 @@
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ID Rdv</th>
+        <th>ID Client</th>
+        <th>Date Heure Debut</th>
+        <th>Date Heure Fin</th>
+        <th>ID Employe</th>
+        <th>Montant Total Paye</th>
+        <th>Etat Fini</th>
+        <th>Total Montant Commission</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data">
+        <td>{{item._id}}</td>
+        <td>{{item._idRdv}}</td>
+        <td>{{item.idClient}}</td>
+        <td>{{item.dateHeureDebut}}</td>
+        <td>{{item.dateHeureFin}}</td>
+        <td>{{item.idEmploye}}</td>
+        <td>{{item.montantTotalPaye}}</td>
+        <td>{{item.etatFini}}</td>
+        <td>{{item.totalMontantCommission}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
