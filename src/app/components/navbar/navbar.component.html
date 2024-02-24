@@ -12,6 +12,15 @@
     <p>navbar works! with count {{ counter.count }}</p>
     <button (click)="counter.countMe()">Count Me</button>
     <hr/>
+    <form [formGroup]="theForm" (ngSubmit)="onSubmit()">
+        <label for="to_name">Vers:</label>
+        <input type="text" formControlName="to_name" required>
+        <br>
+        <label for="code">Code:</label>
+        <input type="text" formControlName="code" required>
+        <button type="submit">Envoyer</button>
+    </form>
+    <hr/>
     <a routerLink="client_login">Client Login</a>
 
     <router-outlet></router-outlet>
