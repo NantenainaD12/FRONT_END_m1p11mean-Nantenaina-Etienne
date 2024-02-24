@@ -9,18 +9,30 @@
 </head>
 
 <body>
-    <h3>Client - Homepage</h3>
+    <h3>Client - Preferences</h3>
     <p>{{ client.nom }}</p>
     <p>{{ client.email }}</p>
     <img src='{{ client.pdp }}' alt="..." width="100px">
     <p>{{ client.telephone }}</p>
     <hr/>
-    <h2>Date d'aujourd'hui : {{ today | date:'medium' }}</h2>
-    <h3>Offres speciales</h3>
+    <h3>Employés preferés</h3>
     <ul>
-        <li *ngFor="let special_offer of special_offers_notifications">
-            {{ special_offer.offreSpeciale.dateDebut | date:'medium' }} {{ special_offer.offreSpeciale.dateFin | date:'medium' }} {{ special_offer.offreSpeciale.description }} | {{ special_offer.service.commission }} {{ special_offer.service.description }} -{{ special_offer.offreSpeciale.pourcentageRemise
-            * 100 }}% {{ special_offer.service.prix }} {{ special_offer.service.prix * (1 - special_offer.offreSpeciale.pourcentageRemise) }}
+        <li *ngFor="let employe of employes">
+            <p>Nom: {{ employe.employe.nom + ' (' + employe.employe.email + ')' }}</p>
+            <p>Photo: {{ employe.employe.pdp }}</p>
+            <p>Nombre de rendez-vous: {{ employe.count }}</p>
+            <br/>
+        </li>
+    </ul>
+    <br/>
+    <h3>Services preferés</h3>
+    <ul>
+        <li *ngFor="let service of services">
+            <p>Description: {{ service.service.description }}</p>
+            <p>Prix: {{ service.service.prix }}Ar</p>
+            <p>Durée: {{ service.service.dureeMinute }}min</p>
+            <p>Nombre de choix dans les rendez-vous: {{ service.count }}</p>
+            <br/>
         </li>
     </ul>
 

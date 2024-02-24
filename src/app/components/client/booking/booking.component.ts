@@ -96,7 +96,7 @@ export class ClientBookingComponent {
         )
         .subscribe(data => {
           const newRdv = JSON.parse(JSON.stringify(data));
-          console.log('newRdv :>> ', newRdv);
+          this.router.navigate(['client_appointment_history']);
         });
     } else {
       alert("Please fill in correctly");

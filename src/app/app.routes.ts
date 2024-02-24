@@ -6,6 +6,7 @@ import { ClientLogoutComponent } from './components/client/logout/logout.compone
 import { ClientSignupComponent } from './components/client/signup/signup.component';
 import { ClientBookingComponent } from './components/client/booking/booking.component';
 import { ClientAppointmentHistoryComponent } from './components/client/appointment-history/appointment-history.component';
+import { ClientPreferenceComponent } from './components/client/preference/preference.component';
 
 export const routes: Routes = [
     { path: '', component: NavbarComponent },
@@ -15,5 +16,6 @@ export const routes: Routes = [
     { path: 'client_logout', component: ClientLogoutComponent },
     { path: 'client_signup', component: ClientSignupComponent },
     { path: 'client_booking', component: ClientBookingComponent },
-    { path: 'client_appointment_history', component: ClientAppointmentHistoryComponent }
+    { path: 'client_appointment_history', component: ClientAppointmentHistoryComponent },
+    { path: 'client_preference', component: ClientPreferenceComponent }
 ];
