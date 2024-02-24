@@ -2,8 +2,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-import { catchError, throwError } from 'rxjs';
 import { ApiUrlService } from '../../../services/tools/api-url.service';
+import _ from "lodash";
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-signup',
@@ -21,6 +22,7 @@ export class ClientSignupComponent {
   constructor(public fb: FormBuilder, public apiUrlService : ApiUrlService, public http:HttpClient, public router : Router) {}
 
   ngOnInit() {
+    emailjs.init('Y6DM3fntyNVwOuI5h');
     this.signupForm = this.fb.group({
       nom: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -48,29 +50,28 @@ export class ClientSignupComponent {
     }
   }
 
-  onSubmit() {
+  generateCodeMail() {
+    return _.random(100000, 999999).toString();
+  }
+
+  async onSubmit() {
     if (this.signupForm.valid) {
-      const { nom, email, mdp, telephone } = this.signupForm.value;
-      var formData = new FormData();
-      formData.append("nom", nom);
-      formData.append("email", email);
-      formData.append("mdp", mdp);
-      formData.append("pdp", this.filename);
-      formData.append("telephone", telephone);
-      console.log('formData :>> ', formData);
-      this.http.post(this.apiUrlService.getUrl() + 'client/signup', formData)
-        .pipe(
-          catchError(error => {
-            const jsonData = JSON.stringify(error);
-            const errorMessage = JSON.parse(jsonData).error;
-            alert(errorMessage);
-            return throwError(error);
-          })
-        )
-        .subscribe(data => {
-          alert("Signed Up");
-          this.router.navigate(['/client_login']);
-        });
+      const clientDatas = {
+        'nom': this.signupForm.value.nom,
+        'email': this.signupForm.value.email,
+        'mdp': this.signupForm.value.mdp,
+        'pdp': this.filename,
+        'telephone': this.signupForm.value.telephone,
+        'code': this.generateCodeMail()
+      };
+      localStorage.setItem('signup_datas', JSON.stringify(clientDatas));
+      const client = JSON.parse(localStorage.getItem('signup_datas') ?? '{}');
+      await emailjs.send("service_7lzcizr","template_s3qx4hz",{
+        to_name: client.nom + " (" + client.email + ")",
+        code: client.code
+      });
+      alert("Mail sent for confirmation");
+      this.router.navigate(['/client_signup_confirmation']);
     } else {
       alert("Please fill in correctly");
     }
