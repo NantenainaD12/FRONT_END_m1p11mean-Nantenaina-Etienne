@@ -16,13 +16,16 @@
     <p>{{ client.telephone }}</p>
     <hr/>
     <h3>Historiques</h3>
+    <div *ngIf="isLoading | async">
+        <p>🔄</p>
+    </div>
     <ul>
         <h4>Rendez-vous</h4>
         <li *ngFor="let historique of historiques">
             <p>Date debut: {{ historique.rdv.dateHeureDebut | date:'medium' }}</p>
             <p>Date fin: {{ historique.rdv.dateHeureFin | date:'medium' }}</p>
             <p>Etat: {{ historique.rdv.etatFini ? 'Fini' : 'Pas encore fini' }}</p>
-            <p>Montant: {{ historique.rdv.etatFini ? historique.rdv.montantTotalPaye + 'Ar payé le ' + (historique.rdv.datePayement | date:'medium') : historique.rdv.montantTotalPaye + 'Ar à payer' }}</p>
+            <p>Montant: {{ historique.rdv.etatFini ? historique.rdv.montantTotalPaye + 'Ar payé le ' + (historique.rdv.datePayement | date:'medium') : historique.rdv.montantTotalPaye + 'Ar à payer' }} &nbsp; <button *ngIf="!historique.rdv.etatFini" (click)="pay(historique.rdv._idRdv)">Payer</button></p>
             <p>Employé responsable: {{ historique.employe.nom }} ({{ historique.employe.email }})</p>
             <ul>
                 <h5>Détails des services</h5>
@@ -44,6 +47,7 @@
         </li>
     </ul>
 
+    <a routerLink="/client_homepage">Homepage</a>&nbsp;
     <a routerLink="/client_booking">Reservation</a>&nbsp;
     <a routerLink="/client_appointment_history">Historique des rendez-vous</a>&nbsp;
     <a routerLink="/client_preference">Preferences</a>&nbsp;
