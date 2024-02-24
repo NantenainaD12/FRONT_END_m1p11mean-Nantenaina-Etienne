@@ -24,6 +24,7 @@ export class TaskDoneDailyComponent {
     const idEmploye = localStorage.getItem('idEmploye');
     // get current date and send to the request
     const currentDate = new Date();
+    ///JUST FOR TEST
     const specificDate = new Date('2024-02-16T00:00:00.000Z');
 
     const startDate = specificDate.toISOString();

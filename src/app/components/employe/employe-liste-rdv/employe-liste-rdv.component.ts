@@ -64,5 +64,55 @@ export class EmployeListeRdvComponent {
         console.error('Erreur lors de la mise à jour de etatFini :', error);
     });
 }
+employee = {
+  nom: '',
+  email: '',
+  pdp: '',
+  horaireDebut: '',
+  horaireFin: ''
+};
+  // Ajoutez cette fonction dans votre composant
+  readFile(event: Event) {
+    const reader = new FileReader();
+    const input = event.target as HTMLInputElement;
+
+    if (input.files && input.files[0]) {
+      const file = input.files[0];
+      reader.onloadend = () => {
+        this.employee.pdp = reader.result as string; // Convertit l'image en base64
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+  updateEmployee() {
+    const idEmploye = localStorage.getItem('idEmploye');
+    const token = localStorage.getItem('token');
+    const url = this.apiUrlService.getUrl() + 'Employe/updateEmployee/' + idEmploye;
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    this.http.post(url, this.employee, { headers })
+      .subscribe((data: any) => {
+        alert("Modification saved successfully");
+        this.getEmployeeData();
+      }, (error) => {
+        console.error('Erreur lors de la mise à jour de l\'employé :', error);
+      });
+  }
+  getEmployeeData() {
+    const idEmploye = localStorage.getItem('idEmploye');
+    const url = this.apiUrlService.getUrl() + 'Employe/getEmployeById/' + idEmploye;
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    this.http.get(url, { headers })
+      .subscribe((data: any) => {
+        if (data && data.length > 0) {
+          this.employee = data[0];
+        } else {
+          console.error('Aucun employé trouvé avec cet idEmploye');
+        }
+      }, (error) => {
+        console.error('Erreur lors de la récupération des données de l\'employé :', error);
+      });
+  }
+
 
 }

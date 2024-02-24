@@ -6,3 +6,25 @@
     display: block; /* Cela permet de centrer l'image avec margin: auto */
     margin: auto; /* Cela centre l'image horizontalement */
 }
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

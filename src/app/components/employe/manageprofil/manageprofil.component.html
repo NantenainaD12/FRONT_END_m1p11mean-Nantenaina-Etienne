@@ -13,12 +13,8 @@
                     <input type="email" id="email" [(ngModel)]="employee.email" name="email" placeholder="Email">
                 </div>
                 <div class="col-xl-6 col-md-6">
-                    <label for="mdp">Mot de passe :</label>
-                    <input type="text" id="mdp" [(ngModel)]="employee.mdp" name="mdp" placeholder="Mot de passe">
-                </div>
-                <div class="col-xl-6 col-md-6">
                     <label for="pdp">Image de profil :</label>
-                    <input type="file" id="pdp" [(ngModel)]="employee.pdp" name="pdp" placeholder="URL de l'image de profil">
+                    <input type="file" id="pdp" (change)="readFile($event)" name="pdp" placeholder="URL de l'image de profil">
                 </div>
                 
                 <div class="col-xl-6 col-md-6">

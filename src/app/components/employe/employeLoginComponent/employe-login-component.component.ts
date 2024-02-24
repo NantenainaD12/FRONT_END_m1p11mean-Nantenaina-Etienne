@@ -20,8 +20,8 @@ export class EmployeLoginComponentComponent {
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      email: ['TestUpadteid7.doe@example.com', [Validators.required, Validators.email]],
-      mdp: ['TestUpadteid7.doe@example.com', Validators.required]
+      email: ['Nanted12.doe@example.com', [Validators.required, Validators.email]],
+      mdp: ['Nanted12.doe@example.com', Validators.required]
     });
   }
 

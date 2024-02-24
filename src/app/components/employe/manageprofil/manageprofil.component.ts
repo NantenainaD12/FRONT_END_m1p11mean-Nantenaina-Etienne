@@ -19,7 +19,6 @@ export class ManageprofilComponent {
   employee = {
     nom: '',
     email: '',
-    mdp: '',
     pdp: '',
     horaireDebut: '',
     horaireFin: ''
@@ -27,6 +26,21 @@ export class ManageprofilComponent {
   constructor(public fb: FormBuilder, public apiUrlService: ApiUrlService, public http: HttpClient, private router: Router) { }
 
 
+  // Ajoutez cette fonction dans votre composant
+  readFile(event: Event) {
+    const reader = new FileReader();
+    const input = event.target as HTMLInputElement;
+
+    if (input.files && input.files[0]) {
+      const file = input.files[0];
+      reader.onloadend = () => {
+        this.employee.pdp = reader.result as string; // Convertit l'image en base64
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  // Modifiez votre fonction updateEmployee pour inclure l'image en base64
   updateEmployee() {
     const idEmploye = localStorage.getItem('idEmploye');
     const token = localStorage.getItem('token');
@@ -62,23 +76,25 @@ export class ManageprofilComponent {
       });
   }
 
-//   handleFileInput(event: Event) {
-//     const target = event.target as HTMLInputElement;
-//     if (target.files && target.files.length > 0) {
-//         this.fileToUpload = target.files.item(0);
-//         if (this.fileToUpload) {
-//             var reader = new FileReader();
-//             reader.onload = this._handleReaderLoaded.bind(this);
-//             reader.readAsBinaryString(this.fileToUpload);
-//         }
-//     }
-// }
-//   _handleReaderLoaded(readerEvt: ProgressEvent<FileReader>) {
-//     if (readerEvt.target) {
-//         var binaryString = readerEvt.target.result;
-//         if (typeof binaryString === 'string') {
-//             this.employee.pdp = btoa(binaryString);  // Converting binary string data.
-//         }
-//     }
-// }
+
+
+  //   handleFileInput(event: Event) {
+  //     const target = event.target as HTMLInputElement;
+  //     if (target.files && target.files.length > 0) {
+  //         this.fileToUpload = target.files.item(0);
+  //         if (this.fileToUpload) {
+  //             var reader = new FileReader();
+  //             reader.onload = this._handleReaderLoaded.bind(this);
+  //             reader.readAsBinaryString(this.fileToUpload);
+  //         }
+  //     }
+  // }
+  //   _handleReaderLoaded(readerEvt: ProgressEvent<FileReader>) {
+  //     if (readerEvt.target) {
+  //         var binaryString = readerEvt.target.result;
+  //         if (typeof binaryString === 'string') {
+  //             this.employee.pdp = btoa(binaryString);  // Converting binary string data.
+  //         }
+  //     }
+  // }
 }
