@@ -37,7 +37,7 @@ export class ClientSignupComponent {
     if(this.file) {
       const allowedTypes = ['image/jpeg', 'image/png'];
       if (!allowedTypes.includes(this.file.type)) {
-        alert("Invalid file type. Only images allowed");
+        alert("Invalid file type. Only images jpeg or png allowed");
         this.signupForm = this.fb.group({
           pdp: ['', Validators.required],
         });

@@ -2,25 +2,102 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>title</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Prata&display=swap" rel="stylesheet">
+    <meta name="description" content="Beauty Salon - provide the easy responsive free website templates. You can easily customize and make your own website for your startup business.">
+    <meta name="keywords" content="bootstrap template, Responsive Template, Website Template, free website templates, free website template download ">
+    <link href="../../../../assets/client/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../assets/client/css/style.css">
+    <link rel="stylesheet" href="../../../../assets/client/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/client/css/fontello.css">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/client/css/animsition.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i%7cLibre+Baskerville:400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <label for="email">Email:</label>
-        <input type="email" formControlName="email" required>
-        <br>
-        <label for="mot_de_passe">Mot de passe:</label>
-        <input type="password" formControlName="mdp" required>
-        <br>
-        <button type="submit">Se connecter</button>
-    </form>
-    <hr/>
-    <a routerLink="/client_signup">Inscription</a>&nbsp;<a routerLink="">Main</a>
+    <div class="space-medium ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 bg-primary pinside40 ">
+                    <div class="contact-info ">
+                        <div class="logo mb40 ">
+                            <a href="index.html "><img src="../../../../assets/client/images/logo-white.png " class="img-responsive " alt=" "></a>
+                        </div>
+                        <ul class="listnone ">
+                            <li><i class="icon-placeholder icon-secondary icon-2x "></i>
+                                <address>
+                                101 St Independacy, <br>
+                                Antananarivo, MDG 261
+                                </address>
+                            </li>
+                            <li><i class=" icon-phone-call icon-secondary icon-2x "></i>
+                                <p>+261 20 22 120 10</p>
+                            </li>
+                            <li><i class="icon-email icon-secondary icon-2x "></i>
+                                <p>beautysalon&#64;gmail.com</p>
+                            </li>
+                            <li><i class=" icon-clock icon-secondary icon-2x "></i>
+                                <p>Lun-Sam : 07h-19h</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 outline pinside40 ">
+                    <div class="row ">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                            <h1>Login</h1>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+                                <div class="form-group">
+                                    <label class="control-label" for="email">E-mail :</label>
+                                    <input type="email" class="form-control" formControlName="email" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+                                <div class="form-group ">
+                                    <label class="control-label" for="mot_de_passe">Mot de passe :</label>
+                                    <input type="password" formControlName="mdp" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                <div class="form-group ">
+                                    <button type="submit" class="btn btn-default">Se connecter</button>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                Pas encore inscrit ? Cliquez <a routerLink="/client_signup" class="text-primary">ici</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tiny-footer ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">© <a href="#">RAKOTOARISOA Jean Etienne</a> | <a href="#">RANARIVELO Hubert Hery Nantenaina</a></div>
+            </div>
+        </div>
+    </div>
     <router-outlet></router-outlet>
+    <script src="../../../../assets/client/js/jquery.min.js "></script>
+    <script src="../../../../assets/client/js/bootstrap.min.js "></script>
+    <script src="../../../../assets/client/js/menumaker.js "></script>
+    <script type="text/javascript " src="../../../../assets/client/js/jquery.sticky.js "></script>
+    <script type="text/javascript " src="../../../../assets/client/js/sticky-header.js "></script>
+    <script type="text/javascript " src="../../../../assets/client/js/animsition.js "></script>
+    <script type="text/javascript " src="../../../../assets/client/js/animsition-script.js "></script>
+    <script src="../../../../assets/client/js/back-to-top.js " type="text/javascript "></script>
 </body>
 
 </html>
