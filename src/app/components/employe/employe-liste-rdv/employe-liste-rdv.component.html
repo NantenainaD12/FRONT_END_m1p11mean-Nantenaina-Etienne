@@ -41,27 +41,19 @@
                   <div class="main-menu">
                     <nav>
                       <ul id="navigation">
-                        <li><a class="active" href="index.html">home</a></li>
-                        <li><a href="service.html">service</a></li>
-                        <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                          <ul class="submenu">
-                            <li><a href="blog.html">blog</a></li>
-                            <li><a href="single-blog.html">single-blog</a></li>
-                          </ul>
-                        </li>
+                        <li><a routerLink="/all_rdv_for_me">home </a></li>
                         <li><a href="#"> Profil <i class="ti-angle-down"></i></a>
                           <ul class="submenu">
-                            <li><a routerLink="/ManageprofilComponent">Manage </a></li>
+                            <!-- <li><a routerLink="/ManageprofilComponent">Manage </a></li> -->
                             <li><a routerLink="/TaskDoneDailyComponent">daily Works</a></li>
                           </ul>
                         </li>
-                        <li><a href="contact.html">Contact</a></li>
                       </ul>
                     </nav>
                   </div>
                   <div class="book_room">
                     <div class="book_btn">
-                        <a class="popup-with-form" href="#test-form" (click)="getEmployeeData()">Appointment</a>
+                      <a class="popup-with-form" href="#test-form" (click)="getEmployeeData()">Update</a>
                     </div>
                   </div>
                 </div>
@@ -193,6 +185,7 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-6" *ngFor="let rdv of dataSource">
+          <a [routerLink]="['/RdvServiceComponent', rdv._idRdv]">
           <div class="single_service">
             <div class="service_thumb">
               <img src="assets/employe/img/service/2.png" alt="">
@@ -201,15 +194,15 @@
               <div class="icon">
                 <i class="flaticon-barber"></i>
               </div>
-              <h3>Client : {{rdv.idClient}}</h3>
+              <h3>{{rdv.employeeName}}</h3>
               <p>{{rdv.dateHeureDebut | date:'EEEE dd MMMM yyyy'}}</p>
               <p><strong> Begin : </strong> {{rdv.dateHeureDebut | date:'HH:mm':'Z'}}</p>
               <p> <strong> Final estimate : </strong>{{rdv.dateHeureFin | date:'HH:mm':'Z'}}</p>
               <!-- Ajoutez plus de propriétés de 'rdv' si nécessaire -->
-              <button (click)="UpdateEtatRdv(rdv._idRdv)">Finish</button> 
-              <a [routerLink]="['/RdvServiceComponent', rdv._idRdv]"><button>details</button></a>
+              <button (click)="UpdateEtatRdv(rdv._idRdv)">Finish</button>
             </div>
           </div>
+          </a>
         </div>
 
         <div class="col-lg-4 col-md-6">
@@ -825,40 +818,42 @@
 
   <form id="test-form" class="white-popup-block mfp-hide" (submit)="updateEmployee()">
     <div class="popup_box ">
-        <div class="popup_inner">
-            <h3>Manage Your profil</h3>
-            <img [src]="employee.pdp" class="profile-pic">
-            <div class="row">
-                <div class="col-xl-6 col-md-6">
-                    <strong><label style="font-size: 15px;" for="nom">Name :</label></strong>
-                    <input type="text" id="nom" [(ngModel)]="employee.nom" name="nom" placeholder="Nom">
-                </div>
-                <div class="col-xl-6 col-md-6">
-                    <strong><label style="font-size: 15px;" for="email">E-mail :</label></strong>
-                    <input type="email" id="email" [(ngModel)]="employee.email" name="email" placeholder="Email">
-                </div>
-                <div class="col-xl-12 col-md-12">
-                    <strong><label style="font-size: 15px;" for="pdp">Profil picture :</label></strong>
-                    <input type="file" id="pdp" (change)="readFile($event)" name="pdp" placeholder="URL de l'image de profil">
-                </div>
-                
-                <div class="col-xl-6 col-md-6">
-                    <strong><label style="font-size: 15px;" for="horaireDebut">Starting Time :</label></strong>
-                    <input type="time" id="horaireDebut" [(ngModel)]="employee.horaireDebut" name="horaireDebut" placeholder="Starting Time">
-                </div>
-                <div class="col-xl-6 col-md-6">
-                    <strong><label style="font-size: 15px;" for="horaireFin">Ending Time :</label></strong>
-                    <input type="time" id="horaireFin" [(ngModel)]="employee.horaireFin" name="horaireFin" placeholder="Ending Time">
-                </div>
-                <div class="col-xl-12">
-                    <button type="submit" class="boxed-btn3">Submit</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
+      <div class="popup_inner">
+        <h3>Manage Your profil</h3>
+        <img [src]="employee.pdp" class="profile-pic">
+        <div class="row">
+          <div class="col-xl-6 col-md-6">
+            <strong><label style="font-size: 15px;" for="nom">Name :</label></strong>
+            <input type="text" id="nom" [(ngModel)]="employee.nom" name="nom" placeholder="Nom">
+          </div>
+          <div class="col-xl-6 col-md-6">
+            <strong><label style="font-size: 15px;" for="email">E-mail :</label></strong>
+            <input type="email" id="email" [(ngModel)]="employee.email" name="email" placeholder="Email">
+          </div>
+          <div class="col-xl-12 col-md-12">
+            <strong><label style="font-size: 15px;" for="pdp">Profil picture :</label></strong>
+            <input type="file" id="pdp" (change)="readFile($event)" name="pdp" placeholder="URL de l'image de profil">
+          </div>
 
-<!-- 
+          <div class="col-xl-6 col-md-6">
+            <strong><label style="font-size: 15px;" for="horaireDebut">Starting Time :</label></strong>
+            <input type="time" id="horaireDebut" [(ngModel)]="employee.horaireDebut" name="horaireDebut"
+              placeholder="Starting Time">
+          </div>
+          <div class="col-xl-6 col-md-6">
+            <strong><label style="font-size: 15px;" for="horaireFin">Ending Time :</label></strong>
+            <input type="time" id="horaireFin" [(ngModel)]="employee.horaireFin" name="horaireFin"
+              placeholder="Ending Time">
+          </div>
+          <div class="col-xl-12">
+            <button type="submit" class="boxed-btn3">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- 
   <form id="test-form" class="white-popup-block mfp-hide" (submit)="updateEmployee()">
     <div class="popup_box ">
       <div class="popup_inner">

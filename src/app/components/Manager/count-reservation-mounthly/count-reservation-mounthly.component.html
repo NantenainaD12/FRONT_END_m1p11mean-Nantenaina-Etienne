@@ -4,15 +4,15 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Barber</title>
+  <title>Barbers</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
   <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
+              <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+          <![endif]-->
 
   <!-- header-start -->
   <header>
@@ -23,7 +23,7 @@
             <div class="col-xl-3 col-lg-3">
               <div class="logo-img">
                 <a href="index.html">
-                  <img src="assets/employe/img/logo.png" alt="">
+                  <img src="img/logo.png" alt="">
                 </a>
               </div>
             </div>
@@ -33,11 +33,11 @@
                   <div class="main-menu">
                     <nav>
                       <ul id="navigation">
-                        <li><a routerLink="/all_rdv_for_me">home </a></li>
-                        <li><a href="#"> Profil <i class="ti-angle-down"></i></a>
+                        <li><a routerLink="/WelcomeManagerComponent">home</a></li>
+                        <li><a href="#">Stats <i class="ti-angle-down"></i></a>
                           <ul class="submenu">
-                            <!-- <li><a routerLink="/ManageprofilComponent">Manage </a></li> -->
-                            <li><a routerLink="/TaskDoneDailyComponent">daily Works</a></li>
+                            <li><a routerLink="/CountReservationDaymounthComponent">Reservation daily</a></li>       
+                            <li><a routerLink="/CountReservationMounthlyComponent">Reservation Monthly</a></li>
                           </ul>
                         </li>
                       </ul>
@@ -61,44 +61,43 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h3>Appointment's Details</h3>
+          <h3>Statistics</h3>
         </div>
       </div>
     </div>
   </div>
   <!-- bradcam_area_end -->
 
-  <div class="service_area">
+  <!-- ================ contact section start ================= -->
+  <section class="contact-section">
     <div class="container">
-      <div class="row justify-content-center ">
-        <div class="col-lg-6 col-md-10">
-          <div class="section_title text-center mb-55">
-            <h3>Details</h3>
-          </div>
-        </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-6" *ngFor="let rdv of rdvServices">
-          <div class="single_service">
-            <div class="service_thumb">
-              <img src="assets/employe/img/service/1.png" alt="">
-            </div>
-            <div class="service_content text-center">
-              <div class="icon">
-                <i class="flaticon-barber"></i>
-              </div>
-              <h3>{{rdv.serviceDescription}}</h3>
-              <p><strong>Normal price : </strong> {{rdv.prixNormal}} Ar</p>
-              <p><strong> Price after remise : </strong> {{rdv.prixApresRemise}} Ar </p>
-              <p> <strong> Commission : </strong>{{rdv.montantCommission}} Ar</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+
+        <label for="mois">Mois</label>
+        <input id="mois" type="number" formControlName="mois">
+
+        <button type="submit">Rechercher</button>
+      </form>
+
+
+      <table>
+        <thead>
+          <tr>
+            <th>Mounth</th>
+            <th>Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{data.mois}}</td>
+            <td>{{data.count }}</td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
-  </div>
-
-
+  </section>
+  <!-- ================ contact section end ================= -->
 
 
 
@@ -149,6 +148,8 @@
     </div>
   </form>
   <!-- form itself end -->
+
+
 </body>
 
 </html>
