@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 export class CountReservationMounthlyComponent {
   data: any;
   searchForm: FormGroup;
+  moisNoms = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   constructor(public fb: FormBuilder, public apiUrlService: ApiUrlService, public http: HttpClient, private router: Router) { 
     this.searchForm = this.fb.group({
       mois: ['', Validators.required]

@@ -4,19 +4,20 @@ import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } 
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 import { ApiUrlService } from '../../../services/tools/api-url.service';
-import { Rdv  } from '../../../Model/Rdv.interface';
+import { Rdv } from '../../../Model/Rdv.interface';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import emailjs from '@emailjs/browser'
 
 @Component({
   selector: 'app-employe-liste-rdv',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, FormsModule, ReactiveFormsModule, HttpClientModule,CommonModule],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, FormsModule, ReactiveFormsModule, HttpClientModule, CommonModule],
   templateUrl: './employe-liste-rdv.component.html',
   styleUrl: './employe-liste-rdv.component.css'
 })
 export class EmployeListeRdvComponent {
-  dataSource: Rdv [] = [];
+  dataSource: Rdv[] = [];
 
   constructor(public fb: FormBuilder, public apiUrlService: ApiUrlService, public http: HttpClient, private router: Router) { }
 
@@ -35,14 +36,14 @@ export class EmployeListeRdvComponent {
 
     // Effectuez la requête GET
     this.http.get(url, { headers })
-    .subscribe((data: any) => {
-      this.dataSource = data as Rdv[];
-      
-      // Boucle pour afficher les données de chaque Rdv
-      for (let rdv of this.dataSource) {
-        console.log(rdv);
-      }
-    });
+      .subscribe((data: any) => {
+        this.dataSource = data as Rdv[];
+
+        // Boucle pour afficher les données de chaque Rdv
+        for (let rdv of this.dataSource) {
+          console.log(rdv);
+        }
+      });
   }
 
   UpdateEtatRdv(idRdv: Number) {
@@ -57,20 +58,20 @@ export class EmployeListeRdvComponent {
 
     // Effectuez la requête PUT
     this.http.put(url, body, { headers })
-    .subscribe((data: any) => {
+      .subscribe((data: any) => {
         console.log(data);
         this.GetAllRDV();
-    }, (error) => {
+      }, (error) => {
         console.error('Erreur lors de la mise à jour de etatFini :', error);
-    });
-}
-employee = {
-  nom: '',
-  email: '',
-  pdp: '',
-  horaireDebut: '',
-  horaireFin: ''
-};
+      });
+  }
+  employee = {
+    nom: '',
+    email: '',
+    pdp: '',
+    horaireDebut: '',
+    horaireFin: ''
+  };
   // Ajoutez cette fonction dans votre composant
   readFile(event: Event) {
     const reader = new FileReader();
@@ -112,6 +113,17 @@ employee = {
       }, (error) => {
         console.error('Erreur lors de la récupération des données de l\'employé :', error);
       });
+  }
+  async onSubmitRappel(rdv: any) {
+    console.log(rdv);
+    emailjs.init('ndLjxh28nA8aGD-dQ');
+    emailjs.send("service_giys12l", "template_4jw4nmz", {
+      nom_client: "AONA PR MANAO AMINAY",
+      dateDebut: rdv.dateHeureDebut,
+      dateFin: rdv.dateHeureFin,
+      montant: rdv.montantTotalPaye,
+      nom_employe: rdv.employeeName,
+    });
   }
 
 

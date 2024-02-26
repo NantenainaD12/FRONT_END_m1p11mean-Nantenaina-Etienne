@@ -47,11 +47,6 @@
                       </ul>
                     </nav>
                   </div>
-                  <div class="book_room">
-                    <div class="book_btn">
-                      <a class="popup-with-form" href="#test-form">New Employe</a>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -70,52 +65,67 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h3>Services</h3>
+          <h3>Special Offer</h3>
         </div>
       </div>
     </div>
   </div>
   <!-- bradcam_area_end -->
 
-  <div class="service_area">
+  <div class="service_area" style="margin-top: -85px;">
     <div class="container">
       <div class="row justify-content-center ">
         <div class="col-lg-6 col-md-10">
           <div class="section_title text-center mb-55">
-            <h3>Our Services</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore</p>
+            <h3>Current Offer</h3>
           </div>
         </div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-6" *ngFor="let service of dataSource">
-          <div class="single_service">
-            <div class="service_thumb">
-              <img src="assets/employe/img/service/2.png" alt="">
-            </div>
-            <div class="service_content text-center">
+        <table style="margin-top: 10px;">
+          <thead>
+            <tr>
+              <th>Services Name</th>
+              <th>Description</th>
+              <th>Begin Date</th>
+              <th>End Date</th>
+              <th>Remise</th>
+            </tr>
+          </thead>
+            <!-- <div class="service_content text-center">
               <div class="icon">
                 <i class="flaticon-barber"></i>
               </div>
               <h3>{{service.description}}</h3>
-              <p><strong> Duree :</strong> {{service.dureeMinute }} Minutes </p>
-              <p><strong> Price : </strong> {{service.prix }} Ar </p>
-              <p> <strong> Commission: </strong> {{service.commission }} % </p>
-            </div>
-          </div>
-        </div>
+              <p><strong> Begining Date :</strong> {{service.dateDebut | date:'EEEE dd MMMM yyyy'}} </p>
+              <p><strong> End Date :</strong> {{service.dateFin | date:'EEEE dd MMMM yyyy'}} </p>
+              <p><strong> Services : </strong> {{service.nomService }}  </p>
+              <p> <strong> pourcentageRemise: </strong> {{service.pourcentageRemise }} % </p>
+            </div> -->
+
+            <tbody>
+              <tr  *ngFor="let service of dataSource">
+                <td>{{service.nomService }}</td>
+                <td>{{service.description}}</td>
+                <td>{{service.dateDebut | date:'EEEE dd MMMM yyyy'}}</td>
+                <td>{{service.dateFin | date:'EEEE dd MMMM yyyy'}}</td>
+                <td>{{service.pourcentageRemise }} % </td>
+                <td><button style="background-color: rgb(249, 245, 125);" (click)="onSubmitNotify(service)">Notify</button></td>
+              </tr>
+            </tbody>
+
+        </table>
       </div>
     </div>
   </div>
 
 
-  <div class="make_apppointment_area">
+  <div class="make_apppointment_area" >
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="section_title pl-68">
-            <h3>Create new Services</h3>
+            <h3>Create new Offre</h3>
           </div>
         </div>
       </div>
@@ -128,17 +138,21 @@
                 <input id="description" type="text" formControlName="description">
               </div>
               <div class="single_field">
-                <label for="dureeMinute">Duration in minutes</label>
-                <input id="dureeMinute" type="number" formControlName="dureeMinute">
+                <label for="dateDebut">Begin Date</label>
+                <input id="dateDebut" type="date" formControlName="dateDebut">
+              </div>
+              <div class="single_field">
+                <label for="dateFin">End Date</label>
+                <input id="dateFin" type="date" formControlName="dateFin">
               </div>
               <div class="single_field m-0">
-                <label for="prix">Price (Ar)</label>
-                <input id="prix" type="number" formControlName="prix">
+                <label for="idService">Services</label>
+                <input id="idService" type="number" formControlName="idService">
               </div>
               <div class="single_field">
 
-                <label for="commission">Commission</label>
-                <input id="commission" type="number" formControlName="commission">
+                <label for="pourcentageRemise">pourcentageRemise</label>
+                <input id="pourcentageRemise" type="number" formControlName="pourcentageRemise">
               </div>
               <div class="form_btn">
                 <button class="boxed-btn3" type="submit">Create</button>
@@ -174,46 +188,6 @@
   </form> -->
 
 
-  <!-- form itself end-->
-  <form id="test-form" class="white-popup-block mfp-hide">
-    <div class="popup_box ">
-      <div class="popup_inner">
-        <h3>Create Employee</h3>
-        <form [formGroup]="employeeForm" (submit)="onSubmitEmployee()">
-          <div class="row">
-            <div class="col-xl-6 col-md-6">
-              <label for="nom">Nom</label>
-              <input id="nom" type="text" formControlName="nom">
-            </div>
-            <div class="col-xl-6 col-md-6">
-              <label for="email">Email</label>
-              <input id="email" type="email" formControlName="email">
-            </div>
-            <div class="col-xl-6 col-md-6">
-              <label for="mdp">Mot de passe</label>
-              <input id="mdp" type="password" formControlName="mdp">
-            </div>
-            <div class="col-xl-6 col-md-6">
-              <label for="pdp"> Photo Profil</label>
-              <input id="pdp" type="text" formControlName="pdp">
-            </div>
-            <div class="col-xl-6 col-md-6">
-              <label for="horaireDebut">Horaire de début</label>
-              <input id="horaireDebut" type="time" formControlName="horaireDebut">
-            </div>
-            <div class="col-xl-6 col-md-6">
-              <label for="horaireFin">Horaire de fin</label>
-              <input id="horaireFin" type="time" formControlName="horaireFin">
-            </div>
-            <div class="col-xl-12">
-              <button type="submit" class="boxed-btn3">Submit</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </form>
-  <!-- form itself end -->
 </body>
 
 </html>

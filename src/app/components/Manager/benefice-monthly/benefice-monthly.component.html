@@ -75,31 +75,57 @@
   <!-- ================ contact section start ================= -->
   <section class="contact-section">
     <div class="container">
-      <h2>Count Reservation per day and mounth</h2>
-      <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" style="margin-top: 80px;">
-        <label for="jour">Day</label>
-        <input id="jour" type="number" formControlName="jour">
+      <h2>Benefice Monthly</h2>
+      <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" >
 
-        <label for="mois">Mounth</label>
-        <input id="mois" type="number" formControlName="mois">
+        <input id="mois" type="number" formControlName="mois" placeholder="Month">
 
         <button type="submit">Search</button>
       </form>
-
-
-      <table style="margin-top: 50px;">
+      <table style="margin-top: 20px;">
         <thead>
           <tr>
             <th>Mounth</th>
-            <th>Day </th>
-            <th>Count</th>
+            <th>Amount total</th>
+            <th>depense</th>
+            <th>benefice</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>{{moisNoms[data.mois-1]}}</td>
-            <td>{{data.jour  }}</td>
-            <td>{{data.count }}</td>
+            <td>{{data.chiffreAffaire }} Ar</td>
+            <td>{{data.depense }} Ar</td>
+            <td>{{data.benefice }} Ar</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 style="margin-top: 35px;">Depense</h2>
+      <form [formGroup]="depenseForm" (ngSubmit)="onSubmitDepense()" style="margin-top: 30px;">
+
+        <label for="dateDepense">date</label>
+        <input id="dateDepense" type="date" formControlName="dateDepense">
+        <label for="description">Description</label>
+        <input id="description" type="text" formControlName="description">
+        <label for="amount">amount</label>
+        <input id="amount" type="number" formControlName="amount">
+
+        <button type="submit">insert</button>
+      </form>
+      <table style="margin-top: 20px;">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Date </th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dataDepense of dataDepense">
+            <td>{{dataDepense.description }}</td>
+            <td>{{dataDepense.dateDepense | date:'EEEE dd MMMM yyyy'}} </td>
+            <td>{{dataDepense.montant }} Ar</td>
           </tr>
         </tbody>
       </table>

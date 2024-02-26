@@ -7,6 +7,8 @@ import { ManageprofilComponent } from './components/employe/manageprofil/managep
 import { WelcomeManagerComponent } from './components/Manager/welcome-manager/welcome-manager.component';
 import { ChiffreAffaireMonthlyComponent } from './components/Manager/chiffre-affaire-monthly/chiffre-affaire-monthly.component';
 import { ChiffreAffaireDailyComponent } from './components/Manager/chiffre-affaire-daily/chiffre-affaire-daily.component';
+import { BeneficeMonthlyComponent } from './components/Manager/benefice-monthly/benefice-monthly.component';
+import { OffreSpecialManagerComponent } from './components/Manager/offre-special-manager/offre-special-manager.component';
 import { CountReservationMounthlyComponent } from './components/Manager/count-reservation-mounthly/count-reservation-mounthly.component';
 import { CountReservationDaymounthComponent } from './components/Manager/count-reservation-daymounth/count-reservation-daymounth.component';
 import { TaskDoneDailyComponent } from './components/employe/task-done-daily/task-done-daily.component';
@@ -34,7 +36,9 @@ export const routes: Routes = [
     { path: 'CountReservationDaymounthComponent', component: CountReservationDaymounthComponent },
     { path: 'CountReservationMounthlyComponent', component: CountReservationMounthlyComponent },
     { path: 'ChiffreAffaireDailyComponent', component: ChiffreAffaireDailyComponent },
-    { path: 'ChiffreAffaireMonthlyComponent', component: ChiffreAffaireMonthlyComponent }
+    { path: 'ChiffreAffaireMonthlyComponent', component: ChiffreAffaireMonthlyComponent },
+    { path: 'OffreSpecialManagerComponent', component: OffreSpecialManagerComponent },
+    { path: 'BeneficeMonthlyComponent', component: BeneficeMonthlyComponent },
 
     
 
