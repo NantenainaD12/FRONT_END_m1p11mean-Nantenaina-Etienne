@@ -15,36 +15,10 @@ import { ApiUrlService } from '../../../services/tools/api-url.service';
 })
 export class ClientHomepageComponent {
 
-  today = new Date();
   client = JSON.parse(localStorage.getItem('client') ?? '{}');
-  special_offers_notifications: any[] = [];
 
   constructor(public fb: FormBuilder, public apiUrlService : ApiUrlService, public http:HttpClient, public router : Router) {}
 
-  updateTime() {
-    this.today = new Date();
-  }
-
-  interval = setInterval(() => {
-    this.updateTime();
-  }, 1000);
-
-  ngOnDestroy() {
-    clearInterval(this.interval);
-  }
-
   ngOnInit() {
-    this.http.get(this.apiUrlService.getUrl() + 'client/special_offers_notifications')
-        .pipe(
-          catchError(error => {
-            const jsonData = JSON.stringify(error);
-            const errorMessage = JSON.parse(jsonData).error;
-            alert(errorMessage);
-            return throwError(error);
-          })
-        )
-        .subscribe(data => {
-          this.special_offers_notifications = JSON.parse(JSON.stringify(data));
-        });
   }
 }
