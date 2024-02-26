@@ -38,6 +38,8 @@
                           <ul class="submenu">
                             <li><a routerLink="/CountReservationDaymounthComponent">Reservation daily</a></li>       
                             <li><a routerLink="/CountReservationMounthlyComponent">Reservation Monthly</a></li>
+                            <li><a routerLink="/ChiffreAffaireDailyComponent">Case Number daily</a></li>
+                            <li><a routerLink="/ChiffreAffaireMonthlyComponent">Case Number Monthly</a></li>
                           </ul>
                         </li>
                       </ul>
@@ -71,16 +73,17 @@
   <!-- ================ contact section start ================= -->
   <section class="contact-section">
     <div class="container">
-      <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+      <h2>Count Reservation mounthly</h2>
+      <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" style="margin-top: 80px;">
 
-        <label for="mois">Mois</label>
+        <label for="mois">mounth</label>
         <input id="mois" type="number" formControlName="mois">
 
-        <button type="submit">Rechercher</button>
+        <button type="submit">Search</button>
       </form>
 
 
-      <table>
+      <table style="margin-top: 50px;">
         <thead>
           <tr>
             <th>Mounth</th>

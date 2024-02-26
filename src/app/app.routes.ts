@@ -5,6 +5,8 @@ import { EmployeListeRdvComponent } from './components/employe/employe-liste-rdv
 import { ServiceManagerComponent } from './components/Manager/service-manager/service-manager.component';
 import { ManageprofilComponent } from './components/employe/manageprofil/manageprofil.component';
 import { WelcomeManagerComponent } from './components/Manager/welcome-manager/welcome-manager.component';
+import { ChiffreAffaireMonthlyComponent } from './components/Manager/chiffre-affaire-monthly/chiffre-affaire-monthly.component';
+import { ChiffreAffaireDailyComponent } from './components/Manager/chiffre-affaire-daily/chiffre-affaire-daily.component';
 import { CountReservationMounthlyComponent } from './components/Manager/count-reservation-mounthly/count-reservation-mounthly.component';
 import { CountReservationDaymounthComponent } from './components/Manager/count-reservation-daymounth/count-reservation-daymounth.component';
 import { TaskDoneDailyComponent } from './components/employe/task-done-daily/task-done-daily.component';
@@ -30,7 +32,9 @@ export const routes: Routes = [
     //mamager
     { path: 'WelcomeManagerComponent', component: WelcomeManagerComponent },
     { path: 'CountReservationDaymounthComponent', component: CountReservationDaymounthComponent },
-    { path: 'CountReservationMounthlyComponent', component: CountReservationMounthlyComponent }
+    { path: 'CountReservationMounthlyComponent', component: CountReservationMounthlyComponent },
+    { path: 'ChiffreAffaireDailyComponent', component: ChiffreAffaireDailyComponent },
+    { path: 'ChiffreAffaireMonthlyComponent', component: ChiffreAffaireMonthlyComponent }
 
     
 

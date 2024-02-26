@@ -86,6 +86,7 @@ export class WelcomeManagerComponent {
       .subscribe((data: any) => {
         console.log(data);
         alert("new services added !!");
+        this.GetAllServices();
         // Vous pouvez ajouter ici des actions à effectuer après la création du service
       }, (error) => {
         console.error('Erreur lors de la création du service :', error);

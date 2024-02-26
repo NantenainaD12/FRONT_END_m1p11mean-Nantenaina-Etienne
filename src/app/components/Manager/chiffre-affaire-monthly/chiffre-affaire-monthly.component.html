@@ -73,12 +73,10 @@
   <!-- ================ contact section start ================= -->
   <section class="contact-section">
     <div class="container">
-      <h2>Count Reservation day and mounth</h2>
+      <h2>Case Number Mounthly</h2>
       <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" style="margin-top: 80px;">
-        <label for="jour">Day</label>
-        <input id="jour" type="number" formControlName="jour">
 
-        <label for="mois">Mounth</label>
+        <label for="mois">mounth</label>
         <input id="mois" type="number" formControlName="mois">
 
         <button type="submit">Search</button>
@@ -89,15 +87,13 @@
         <thead>
           <tr>
             <th>Mounth</th>
-            <th>Day </th>
             <th>Count</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>{{data.mois}}</td>
-            <td>{{data.jour  }}</td>
-            <td>{{data.count }}</td>
+            <td>{{data.total }} Ar</td>
           </tr>
         </tbody>
       </table>
