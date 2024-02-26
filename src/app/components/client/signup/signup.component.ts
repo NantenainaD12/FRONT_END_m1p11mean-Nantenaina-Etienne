@@ -67,7 +67,7 @@ export class ClientSignupComponent {
       localStorage.setItem('signup_datas', JSON.stringify(clientDatas));
       const client = JSON.parse(localStorage.getItem('signup_datas') ?? '{}');
       await emailjs.send("service_7lzcizr","template_s3qx4hz",{
-        to_name: client.nom + " (" + client.email + ")",
+        to_name: client.nom,
         code: client.code
       });
       alert("Mail sent for confirmation");

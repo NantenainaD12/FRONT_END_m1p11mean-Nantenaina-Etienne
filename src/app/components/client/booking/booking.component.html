@@ -8,18 +8,14 @@
     <title>title</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Prata&display=swap" rel="stylesheet">
-    <meta name="description"
-        content="Beauty Salon - provide the easy responsive free website templates. You can easily customize and make your own website for your startup business.">
-    <meta name="keywords"
-        content="bootstrap template, Responsive Template, Website Template, free website templates, free website template download ">
+    <meta name="description" content="Beauty Salon - provide the easy responsive free website templates. You can easily customize and make your own website for your startup business.">
+    <meta name="keywords" content="bootstrap template, Responsive Template, Website Template, free website templates, free website template download ">
     <link href="../../../../assets/client/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../../assets/client/css/style.css">
     <link rel="stylesheet" href="../../../../assets/client/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../../../../assets/client/css/fontello.css">
     <link rel="stylesheet" type="text/css" href="../../../../assets/client/css/animsition.min.css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i%7cLibre+Baskerville:400,400i,700"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i%7cLibre+Baskerville:400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -48,7 +44,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                             <div class="time-block">
-                                <h3 class="time">{{ client.nom }}</h3>
+                                <h3 class="time"><i class='fa fa-circle' style='font-size: 12px; color:#31A24C'></i>&nbsp;{{ client.nom }}</h3>
                                 <p class="call-text">{{ client.email }}</p>
                             </div>
                         </div>
@@ -73,10 +69,8 @@
                                     speciales</a></li>
                             <li class="active"><a routerLink="/client_booking" class="animsition-link">Reservation</a>
                             </li>
-                            <li class="active"><a routerLink="/client_appointment_history"
-                                    class="animsition-link">Historique des rendez-vous</a></li>
-                            <li class="active"><a routerLink="/client_preference"
-                                    class="animsition-link">Preferences</a></li>
+                            <li class="active"><a routerLink="/client_appointment_history" class="animsition-link">Historique des rendez-vous</a></li>
+                            <li class="active"><a routerLink="/client_preference" class="animsition-link">Preferences</a></li>
                             <li class="active"><a routerLink="/client_logout" class="animsition-link">Deconnexion</a>
                             </li>
                         </ul>
@@ -102,8 +96,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 bg-primary pinside40 ">
                     <div class="contact-info ">
                         <div class="logo mb40 ">
-                            <a href="#"><img src="../../../../assets/client/images/logo-white.png "
-                                    class="img-responsive " alt=" "></a>
+                            <a href="#"><img src="../../../../assets/client/images/logo-white.png " class="img-responsive " alt=" "></a>
                         </div>
                         <ul class="listnone ">
                             <li><i class="icon-placeholder icon-secondary icon-2x "></i>
@@ -150,9 +143,7 @@
                                 <div class="row">
                                     <div *ngFor="let employe of employes" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                         <div class="price-block outline mb30">
-                                            <div class="price-img"><img
-                                                    src="{{ employe.pdp }}"
-                                                    class="img-responsive" alt=""></div>
+                                            <div class="price-img"><img src="../../../../assets/client/images/pricing-img-1.jpg" class="img-responsive" alt=""></div>
                                             <div class="price-content pinside30">
                                                 <h4 class="price-title mb10 text-center">{{ employe.nom }}</h4>
                                                 <div class="text-center">
@@ -169,12 +160,9 @@
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                                 <div class="row">
-                                    <div *ngFor="let service of services; let i=index"
-                                        class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                    <div *ngFor="let service of services; let i=index" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                         <div class="price-block outline mb30">
-                                            <div class="price-img"><img
-                                                    src="../../../../assets/client/images/pricing-img-1.jpg"
-                                                    class="img-responsive" alt=""></div>
+                                            <div class="price-img"><img src="../../../../assets/client/images/pricing-img-1.jpg" class="img-responsive" alt=""></div>
                                             <div class="price-content pinside30">
                                                 <h4 class="price-title mb10 text-center">{{ service.description }}</h4>
                                                 <ul class="listnone mb40 text-uppercase">
@@ -203,7 +191,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="footer ">
         <div class="container ">
             <div class="row ">
@@ -252,9 +240,12 @@
                         <h2 class="footer-title ">Liens rapides</h2>
                         <ul class="listnone ">
                             <li><i class="fa fa-caret-right "></i><a routerLink="/client_homepage">Homepage</a></li>
+                            <li><i class="fa fa-caret-right "></i><a routerLink="/client_special_offers">Offres speciales</a></li>
                             <li><i class="fa fa-caret-right "></i><a routerLink="/client_booking">Reservation</a></li>
-                            <li><i class="fa fa-caret-right "></i><a routerLink="/client_appointment_history">Historique des rendez-vous</a></li>
-                            <li><i class="fa fa-caret-right "></i><a routerLink="/client_preference">Preferences</a></li>
+                            <li><i class="fa fa-caret-right "></i><a routerLink="/client_appointment_history">Historique
+                                    des rendez-vous</a></li>
+                            <li><i class="fa fa-caret-right "></i><a routerLink="/client_preference">Preferences</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
