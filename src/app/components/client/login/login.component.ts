@@ -1,7 +1,7 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 import { ApiUrlService } from '../../../services/tools/api-url.service';
 
@@ -15,7 +15,7 @@ import { ApiUrlService } from '../../../services/tools/api-url.service';
 export class ClientLoginComponent {
   loginForm!: FormGroup;
 
-  constructor(public fb: FormBuilder, public apiUrlService : ApiUrlService, public http:HttpClient) {}
+  constructor(public fb: FormBuilder, public apiUrlService : ApiUrlService, public http:HttpClient, public router : Router) {}
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -40,9 +40,8 @@ export class ClientLoginComponent {
           })
         )
         .subscribe(data => {
-          const jsonData = JSON.stringify(data);
-          const telephoneNumber = JSON.parse(jsonData).telephone;
-          alert(telephoneNumber);
+          localStorage.setItem('client', JSON.stringify(data));
+          this.router.navigate(['client_homepage']);
         });
     }
   }
