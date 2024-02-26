@@ -2,6 +2,508 @@
 <html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>title</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Prata&display=swap" rel="stylesheet">
+    <meta name="description"
+        content="Beauty Salon - provide the easy responsive free website templates. You can easily customize and make your own website for your startup business.">
+    <meta name="keywords"
+        content="bootstrap template, Responsive Template, Website Template, free website templates, free website template download ">
+    <link href="../../../../assets/client/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../assets/client/css/style.css">
+    <link rel="stylesheet" href="../../../../assets/client/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/client/css/fontello.css">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/client/css/animsition.min.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i%7cLibre+Baskerville:400,400i,700"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                    <div class="logo">
+                        <a href="#"><img src="../../../../assets/client/images/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <div class="call-block">
+                                <h3 class="call-no">+261 20 22 120 10</h3>
+                                <p class="call-text">Pour plus d'informations</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                            <div class="time-block">
+                                <h3 class="time">Lun-Sam : 07h-19h</h3>
+                                <p class="call-text">Heure d'ouverture</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                            <div class="time-block">
+                                <h3 class="time">{{ client.nom }}</h3>
+                                <p class="call-text">{{ client.email }}</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="top-btn"> <a routerLink="/client_booking" class="btn btn-default">Rendez-vous en
+                                    ligne</a> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- navigation -->
+    <div class="navigation-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="navigation" id="navigation">
+                        <ul>
+                            <li class="active"><a routerLink="/client_homepage" class="animsition-link">Homepage</a>
+                            </li>
+                            <li class="active"><a routerLink="/client_special_offers" class="animsition-link">Offres
+                                    speciales</a></li>
+                            <li class="active"><a routerLink="/client_booking" class="animsition-link">Reservation</a>
+                            </li>
+                            <li class="active"><a routerLink="/client_appointment_history"
+                                    class="animsition-link">Historique des rendez-vous</a></li>
+                            <li class="active"><a routerLink="/client_preference"
+                                    class="animsition-link">Preferences</a></li>
+                            <li class="active"><a routerLink="/client_logout" class="animsition-link">Deconnexion</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-header page-caption">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h1 class="page-title">Historique des rendez-vous</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="space-medium">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="post-holder mb30">
+                                <div class="post-content pinside30 outline">
+                                    <div class="mb5">
+                                        <div class="meta">
+                                            Debut: <span class="meta-date">24 December, 2017</span>
+                                            Fin: <span class="meta-date">24 December, 2017</span>
+                                            Etat: <span class="meta-date">Pas encore fini</span>
+                                            Montant: 
+                                                <span class="meta-date">10000Ar à payer &nbsp; 
+                                                    <a href="#" class="btn btn-primary btn-xs">Payer</a>
+                                                </span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                            <h4 class="comments-title">Employé responsable</h4>
+                                            <div class="comments-area">
+                                                <div class="comment-body">
+                                                    <div class="">
+                                                        <div class="comment-author"><img src="../../../../assets/client/images/user1.jpg"
+                                                                alt="" class="img-circle"> </div>
+                                                        <div class="comment-info">
+                                                            <div class="comment-header">
+                                                                <h4 class="user-title mb10">Evelyn Horn</h4>
+                                                                <div class="comment-meta"><span
+                                                                        class="comment-meta-date">22 December,
+                                                                        2017</span></div>
+                                                            </div>
+                                                            <div class="comment-content">
+                                                                <p>En travail, de 8h jusqu'à 16h</p>
+                                                            </div>
+                                                            <hr>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                            <h4 class="comments-title">Services correspondates</h4>
+                                            <div class="comments-area">
+                                                <ul class="comment-list listnone">
+                                                    <li class="comment">
+                                                        <div class="comment-body">
+                                                            <div class="">
+                                                                <div class="comment-author"><img src="../../../../assets/client/images/user1.jpg"
+                                                                        alt="" class="img-responsive"> </div>
+                                                                <div class="comment-info">
+                                                                    <div class="comment-header">
+                                                                        <h4 class="user-title mb10">Barbe</h4>
+                                                                        <div class="comment-meta"><span
+                                                                                class="comment-meta-date">22 December,
+                                                                                2017</span></div>
+                                                                    </div>
+                                                                    <div class="comment-content">
+                                                                        <p>En travail, de 8h jusqu'à 16h</p>
+                                                                    </div>
+                                                                    <hr>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <h1 class="section-title">Related Post</h1>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="related-block mb30">
+                                                <div class="related-img mb30"><a href="#" class="imghover"><img
+                                                            src="images/related-img-1.jpg" class="img-responsive"
+                                                            alt=""></a></div>
+                                                <h4 class="related-title"><a href="#" class="title">The Easiest Way to
+                                                        Remove Long Wearing Matte Liquid Lipstick</a></h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="related-block mb30">
+                                                <div class="related-img mb30"><a href="#" class="imghover"><img
+                                                            src="images/related-img-2.jpg" class="img-responsive"
+                                                            alt=""></a></div>
+                                                <h4 class="related-title"><a href="#" class="title">Secrets to Get Your
+                                                        Blush to Look as Natural as Possible</a></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bdr-btm"></div>
+                                    <div class="next-prev-post">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                <div class="prev-post">
+                                                    <h5 class="prev-link"><a href="#" class="btn-link title">Previous
+                                                            Post</a></h5>
+                                                    <h4 class="prev-next-title"><a href="#" class="title">The Easiest
+                                                            Way to Remove Long Wearing Matte Liquid Lipstick</a></h4>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                <div class="next-post">
+                                                    <h5 class="next-link"><a href="#" class="btn-link title">Next
+                                                            Post</a></h5>
+                                                    <h4 class="next-prev-title"><a href="#" class="title">Secrets to Get
+                                                            Your Blush to Look as Natural as Possible</a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bdr-btm"></div>
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <h1 class="section-title">Author Post</h1>
+                                        </div>
+                                        <div class="author-post mb30 pinside30">
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                    <div class="author-img mb40"><img src="images/author.jpg"
+                                                            class="img-responsive img-circle" alt=""></div>
+                                                    <div class="social"> <a href="#"><i class="fa fa-twitter"></i></a>
+                                                        <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+                                                                class="fa fa-google-plus"></i></a> </div>
+                                                </div>
+                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                    <div class="author-detail">
+                                                        <h2 class="author-title">Evelyn Horn</h2>
+                                                        <p class="mb40">Resdese ortis volutpat portliquam ac tristique
+                                                            sedposus ere ultricen ncussapien ise fringillas lorem
+                                                            istspell entesq pellentesqumi quam congue feugiat nisi umi
+                                                            quam lorem congue feugiat nisi felis non isau.</p>
+                                                        <a href="#" class="btn btn-primary">View All Posts</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bdr-btm"></div>
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12  col-sm-12 col-xs-12">
+                                            <h1 class="comments-title mb30">(04) Comments</h1>
+                                            <div class="comments-area mb40">
+                                                <ul class="comment-list listnone">
+                                                    <li class="comment">
+                                                        <div class="comment-body">
+                                                            <div class="">
+                                                                <div class="comment-author"><img src="images/user1.jpg"
+                                                                        alt="" class="img-circle"> </div>
+                                                                <div class="comment-info">
+                                                                    <div class="comment-header">
+                                                                        <h4 class="user-title mb10">Evelyn Horn</h4>
+                                                                        <div class="comment-meta"><span
+                                                                                class="comment-meta-date">22 December,
+                                                                                2017</span></div>
+                                                                    </div>
+                                                                    <div class="reply"><a href="#"
+                                                                            class="btn btn-default btn-sm">Reply</a>
+                                                                    </div>
+                                                                    <hr>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <ul class="childern listnone">
+                                                            <li class="comment">
+                                                                <div class="comment-body">
+                                                                    <div class="">
+                                                                        <div class="comment-author"><img
+                                                                                src="images/user2.jpg" alt=""
+                                                                                class="img-circle"> </div>
+                                                                        <div class="comment-info">
+                                                                            <div class="comment-header">
+                                                                                <h4 class="user-title mb10">Symon Dosis
+                                                                                </h4>
+                                                                                <div class="comment-meta"><span
+                                                                                        class="comment-meta-date">22
+                                                                                        December, 2017</span></div>
+                                                                            </div>
+                                                                            <div class="comment-content">
+                                                                                <p>Seristique sedposus ere en sdese
+                                                                                    ortis volutpat portliquam acultricen
+                                                                                    uss apien ise fringillas lorem
+                                                                                    istspell entesq pellentesqumi
+                                                                                    quiate.</p>
+                                                                            </div>
+                                                                            <div class="reply"><a href="#"
+                                                                                    class="btn btn-default btn-sm">Reply</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                <ul class="comment-list listnone">
+                                                    <li class="comment">
+                                                        <div class="comment-body">
+                                                            <div class="">
+                                                                <div class="comment-author"><img src="images/user3.jpg"
+                                                                        alt="" class="img-circle"> </div>
+                                                                <div class="comment-info">
+                                                                    <div class="comment-header">
+                                                                        <h4 class="user-title mb10">Hellyn Semon</h4>
+                                                                        <div class="comment-meta"><span
+                                                                                class="comment-meta-date">22 December,
+                                                                                2017</span></div>
+                                                                    </div>
+                                                                    <div class="comment-content">
+                                                                        <p>Volutpat portliquam ac tristique sedposus ere
+                                                                            ultricen uss apien ise fringillas lorem
+                                                                            istspell entesq pellen.</p>
+                                                                    </div>
+                                                                    <div class="reply"><a href="#"
+                                                                            class="btn btn-default btn-sm">Reply</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <hr>
+                                                <ul class="comment-list listnone">
+                                                    <li class="comment">
+                                                        <div class="comment-body">
+                                                            <div class="">
+                                                                <div class="comment-author"><img src="images/user4.jpg"
+                                                                        alt="" class="img-circle"> </div>
+                                                                <div class="comment-info">
+                                                                    <div class="comment-header">
+                                                                        <h4 class="user-title mb10">Merly johnson</h4>
+                                                                        <div class="comment-meta"><span
+                                                                                class="comment-meta-date">22 December,
+                                                                                2017</span></div>
+                                                                    </div>
+                                                                    <div class="comment-content">
+                                                                        <p>Eren sdese ortis volutpat portliquam ac
+                                                                            tristique sedposus ere ultricen uss apien
+                                                                            ise fringillas lorem istspell entesq
+                                                                            pellentesqumi quiate.</p>
+                                                                    </div>
+                                                                    <div class="reply"><a href="#"
+                                                                            class="btn btn-default btn-sm">Reply</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bdr-btm"></div>
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-md-12 col-sm-12">
+                                            <div class="leave-comments">
+                                                <!-- leave comments -->
+                                                <h1 class="reply-title  mb40">Leave A Comment</h1>
+                                                <form class="reply-form">
+                                                    <div class="row">
+                                                        <!-- Textarea -->
+                                                        <div class="form-group">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <label class="control-label"
+                                                                    for="textarea">Comment:</label>
+                                                                <textarea class="form-control" id="textarea"
+                                                                    name="textarea" rows="6" placeholder=" "></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-7 col-sm-12 col-xs-12">
+                                                            <!-- Text input-->
+                                                            <div class="form-group">
+                                                                <label class="control-label" for="name">Name:</label>
+                                                                <input id="name" name="name" type="text"
+                                                                    class="form-control" placeholder=" " required>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Text input-->
+                                                        <div class="col-lg-4 col-md-7 col-sm-12 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label" for="email">Email:</label>
+                                                                <input id="email" name="email" type="text"
+                                                                    class="form-control" placeholder="" required>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Text input-->
+                                                        <div class="col-lg-4 col-md-7 col-sm-12 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label"
+                                                                    for="website">Website:</label>
+                                                                <input id="website" name="website" type="text"
+                                                                    class="form-control" placeholder="" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <!-- Button -->
+                                                            <div class="form-group">
+                                                                <button id="singlebutton" name="singlebutton"
+                                                                    class="btn btn-default">Submit</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                    <div class="footer-widget bg-white pinside30 mb30 ">
+                        <div class="logo mb30 ">
+                            <a href="images/logo.png "><img src="../../../../assets/client/images/logo.png "
+                                    class="img-responsive " alt=" "></a>
+                        </div>
+                        <p class="mb30">Bien plus qu'un salon, une parenthèse de bien-être et de beauté</p>
+                        <div class="footer-social "><a href="# "><i class="fa fa-twitter "></i></a><a href="# "><i
+                                    class="fa fa-facebook "></i></a><a href="# "><i class="fa fa-google-plus "></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-offset-1 col-lg-3 col-md-offset-1 col-md-3 col-sm-6 col-xs-12 ">
+                    <div class="footer-widget footer-contact ">
+                        <h2 class="footer-title ">Contact</h2>
+                        <ul class="listnone ">
+                            <li>
+                                <div class="row ">
+                                    <div class="col-md-2 "><i class="fa fa-phone "></i></div>
+                                    <div class="col-md-10 ">
+                                        <h4 class="call-no "><a href="contact.html ">+261 20 22 120 10</a></h4>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row ">
+                                    <div class="col-md-2 "><i class="fa fa-envelope-o "></i></div>
+                                    <div class="col-md-10 ">
+                                        <h4 class="mail-text "><a href="contact.html ">beautysalon&#64;gmail.com</a>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row ">
+                                    <div class="col-md-2 "><i class="fa fa-clock-o "></i></div>
+                                    <div class="col-md-10 ">
+                                        <h4 class="time-text "><a href="contact.html ">Mon-Sam : 07h-19h</a></h4>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-offset-1 col-lg-3 col-md-offset-1 col-md-3 col-sm-6 col-xs-12 ">
+                    <div class="footer-widget ">
+                        <h2 class="footer-title ">Liens rapides</h2>
+                        <ul class="listnone ">
+                            <li><i class="fa fa-caret-right "></i><a routerLink="/client_homepage">Homepage</a></li>
+                            <li><i class="fa fa-caret-right "></i><a routerLink="/client_booking">Reservation</a></li>
+                            <li><i class="fa fa-caret-right "></i><a routerLink="/client_appointment_history">Historique
+                                    des rendez-vous</a></li>
+                            <li><i class="fa fa-caret-right "></i><a routerLink="/client_preference">Preferences</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tiny-footer ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">Team: <a href="#">RAKOTOARISOA Jean
+                        Etienne</a> | <a href="#">RANARIVELO Hubert Hery Nantenaina</a></div>
+            </div>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+    <script src="../../../../assets/client/js/jquery.min.js "></script>
+    <script src="../../../../assets/client/js/bootstrap.min.js "></script>
+    <script src="../../../../assets/client/js/menumaker.js "></script>
+    <script type="text/javascript " src="../../../../assets/client/js/jquery.sticky.js "></script>
+    <script type="text/javascript " src="../../../../assets/client/js/sticky-header.js "></script>
+    <script type="text/javascript " src="../../../../assets/client/js/animsition.js "></script>
+    <script type="text/javascript " src="../../../../assets/client/js/animsition-script.js "></script>
+    <script src="../../../../assets/client/js/back-to-top.js " type="text/javascript "></script>
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>H-Beauty</title>
@@ -54,4 +556,4 @@
     <router-outlet></router-outlet>
 </body>
 
-</html>
+</html> -->
