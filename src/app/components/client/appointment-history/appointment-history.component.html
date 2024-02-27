@@ -104,7 +104,7 @@
                             <div class="mb5">
                                 <div class="meta">
                                     Debut: <span class="meta-date">{{ historique.rdv.dateHeureDebut | date:'medium' }}</span> Fin: <span class="meta-date">{{ historique.rdv.dateHeureFin | date:'medium' }}</span> Etat: <span class="meta-date">{{ historique.rdv.etatFini ? 'Fini' : 'Pas encore fini' }}</span>                                    Montant:
-                                    <span class="meta-date">{{ historique.rdv.etatFini ? historique.rdv.montantTotalPaye + 'Ar payé le ' + (historique.rdv.datePayement | date:'medium') : historique.rdv.montantTotalPaye + 'Ar à payer' }} &nbsp; <button *ngIf="!historique.rdv.etatFini" class="btn btn-primary btn-sm" (click)="pay(historique.rdv._idRdv)">Payer</button></span>
+                                    <span class="meta-date">{{ historique.rdv.datePayement ? historique.rdv.montantTotalPaye + 'Ar payé le ' + (historique.rdv.datePayement | date:'medium') : historique.rdv.montantTotalPaye + 'Ar à payer' }} &nbsp; <button *ngIf="!historique.rdv.datePayement" class="btn btn-primary btn-sm" (click)="pay(historique.rdv._idRdv)">Payer</button></span>
                                 </div>
                             </div>
                             <div class="row">

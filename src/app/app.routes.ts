@@ -34,7 +34,7 @@ export const routes: Routes = [
     { path: 'client_appointment_history', component: ClientAppointmentHistoryComponent },
     { path: 'client_preference', component: ClientPreferenceComponent },
     { path: 'client_signup_confirmation', component: ClientSignupConfirmationComponent },
-    { path: 'client_special_offers', component: ClientSpecialOffersComponent }
+    { path: 'client_special_offers', component: ClientSpecialOffersComponent },
     { path: 'client_login', component: ClientLoginComponent },
     { path: 'Employe_login', component: EmployeLoginComponentComponent },
 
