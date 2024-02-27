@@ -118,7 +118,7 @@ export class EmployeListeRdvComponent {
     console.log(rdv);
     emailjs.init('ndLjxh28nA8aGD-dQ');
     emailjs.send("service_giys12l", "template_4jw4nmz", {
-      nom_client: "AONA PR MANAO AMINAY",
+      nom_client: "etienne",
       dateDebut: rdv.dateHeureDebut,
       dateFin: rdv.dateHeureFin,
       montant: rdv.montantTotalPaye,
