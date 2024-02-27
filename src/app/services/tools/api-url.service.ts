@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ApiUrlService {
 
-  private readonly apiUrl = "http://localhost:3001/";
+  private readonly apiUrl = "https://m1p14mean-nantenaina-etienne.netlify.app/.netlify/functions/api/";
 
   getUrl() {
     return this.apiUrl;
