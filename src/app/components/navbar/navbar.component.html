@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+</head>
+
+<body>
+    <p>navbar works! with count {{ counter.count }}</p>
+    <button (click)="counter.countMe()">Count Me</button>
+    <hr/>
+    <form [formGroup]="theForm" (ngSubmit)="onSubmit()">
+        <label for="to_name">Vers:</label>
+        <input type="text" formControlName="to_name" required>
+        <br>
+        <label for="code">Code:</label>
+        <input type="text" formControlName="code" required>
+        <button type="submit">Envoyer</button>
+    </form>
+    <hr/>
+    <a routerLink="client_login">Client Login</a>
+    <p><a routerLink="Employe_login">Employe Login</a></p>
+    <p><a routerLink="/WelcomeManagerComponent">Admin</a></p>
+
+    <router-outlet></router-outlet>
+</body>
+
+</html>

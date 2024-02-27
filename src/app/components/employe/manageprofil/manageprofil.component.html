@@ -1,0 +1,34 @@
+<form (submit)="updateEmployee()">
+    <div class="popup_box ">
+        <div class="popup_inner">
+            <h3>Manage Your profil</h3>
+            <img [src]="employee.pdp" class="profile-pic">
+            <div class="row">
+                <div class="col-xl-6 col-md-6">
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" [(ngModel)]="employee.nom" name="nom" placeholder="Nom">
+                </div>
+                <div class="col-xl-6 col-md-6">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" [(ngModel)]="employee.email" name="email" placeholder="Email">
+                </div>
+                <div class="col-xl-6 col-md-6">
+                    <label for="pdp">Image de profil :</label>
+                    <input type="file" id="pdp" (change)="readFile($event)" name="pdp" placeholder="URL de l'image de profil">
+                </div>
+                
+                <div class="col-xl-6 col-md-6">
+                    <label for="horaireDebut">Horaire de début :</label>
+                    <input type="time" id="horaireDebut" [(ngModel)]="employee.horaireDebut" name="horaireDebut" placeholder="Horaire de début">
+                </div>
+                <div class="col-xl-6 col-md-6">
+                    <label for="horaireFin">Horaire de fin :</label>
+                    <input type="time" id="horaireFin" [(ngModel)]="employee.horaireFin" name="horaireFin" placeholder="Horaire de fin">
+                </div>
+                <div class="col-xl-12">
+                    <button type="submit" class="boxed-btn3">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

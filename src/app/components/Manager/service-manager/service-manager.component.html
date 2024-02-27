@@ -1,0 +1,16 @@
+<form [formGroup]="serviceForm" (ngSubmit)="onSubmit()">
+    <label for="description">Description</label>
+    <input id="description" type="text" formControlName="description">
+  
+    <label for="dureeMinute">Durée en minutes</label>
+    <input id="dureeMinute" type="number" formControlName="dureeMinute">
+  
+    <label for="prix">Prix</label>
+    <input id="prix" type="number" formControlName="prix">
+  
+    <label for="commission">Commission</label>
+    <input id="commission" type="number" formControlName="commission">
+  
+    <button type="submit">Créer le service</button>
+  </form>
+  
