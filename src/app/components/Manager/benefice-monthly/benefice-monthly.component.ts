@@ -65,14 +65,11 @@ export class BeneficeMonthlyComponent {
   }
 
   onSubmitDepense(): void {
-    console.log('fa aona eh');
     
     if (this.depenseForm.valid) {
       this.CreateDepense(this.depenseForm.value);
-      this.getBeneficeMonthly(new Date().getMonth()+1);
-    }
-    if (this.searchForm.valid) {
       this.getBeneficeMonthly(this.searchForm.value.mois);
+      this.GetDepensemonthly(this.searchForm.value.mois);
     }
   }
   
@@ -97,7 +94,7 @@ export class BeneficeMonthlyComponent {
         this.depenseForm.reset();
         //this.GetAllOffre();
         // Vous pouvez ajouter ici des actions à effectuer après la création du service
-        alert('mandee');
+        alert('Depense created');
       }, (error) => {
         console.error('Erreur lors de la création du service :', error);
       });
