@@ -1,0 +1,30 @@
+.profile-pic {
+    width: 100px; /* Ajustez la taille comme vous le souhaitez */
+    height: 100px; /* Ajustez la taille comme vous le souhaitez */
+    border-radius: 50%; /* Cela rend l'image ronde */
+    object-fit: cover; /* Cela s'assure que l'image couvre toute la zone, même si elle n'est pas carrée */
+    display: block; /* Cela permet de centrer l'image avec margin: auto */
+    margin: auto; /* Cela centre l'image horizontalement */
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #715446;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
