@@ -8,14 +8,18 @@
     <title>title</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Prata&display=swap" rel="stylesheet">
-    <meta name="description" content="Beauty Salon - provide the easy responsive free website templates. You can easily customize and make your own website for your startup business.">
-    <meta name="keywords" content="bootstrap template, Responsive Template, Website Template, free website templates, free website template download ">
+    <meta name="description"
+        content="Beauty Salon - provide the easy responsive free website templates. You can easily customize and make your own website for your startup business.">
+    <meta name="keywords"
+        content="bootstrap template, Responsive Template, Website Template, free website templates, free website template download ">
     <link href="../../../../assets/client/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../../assets/client/css/style.css">
     <link rel="stylesheet" href="../../../../assets/client/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../../../../assets/client/css/fontello.css">
     <link rel="stylesheet" type="text/css" href="../../../../assets/client/css/animsition.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i%7cLibre+Baskerville:400,400i,700" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i%7cLibre+Baskerville:400,400i,700"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -44,12 +48,14 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                             <div class="time-block">
-                                <h3 class="time"><i class='fa fa-circle' style='font-size: 12px; color:#31A24C'></i>&nbsp;{{ client.nom }}</h3>
+                                <h3 class="time"><i class='fa fa-circle'
+                                        style='font-size: 12px; color:#31A24C'></i>&nbsp;{{ client.nom }}</h3>
                                 <p class="call-text">{{ client.email }}</p>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <div class="top-btn"> <a routerLink="/client_booking" class="btn btn-default">Rendez-vous en ligne</a> </div>
+                            <div class="top-btn"> <a routerLink="/client_booking" class="btn btn-default">Rendez-vous en
+                                    ligne</a> </div>
                         </div>
                     </div>
                 </div>
@@ -69,8 +75,10 @@
                                     speciales</a></li>
                             <li class="active"><a routerLink="/client_booking" class="animsition-link">Reservation</a>
                             </li>
-                            <li class="active"><a routerLink="/client_appointment_history" class="animsition-link">Historique des rendez-vous</a></li>
-                            <li class="active"><a routerLink="/client_preference" class="animsition-link">Preferences</a></li>
+                            <li class="active"><a routerLink="/client_appointment_history"
+                                    class="animsition-link">Historique des rendez-vous</a></li>
+                            <li class="active"><a routerLink="/client_preference"
+                                    class="animsition-link">Preferences</a></li>
                             <li class="active"><a routerLink="/client_logout" class="animsition-link">Deconnexion</a>
                             </li>
                         </ul>
@@ -93,31 +101,7 @@
     <div class="space-medium ">
         <div class="container ">
             <div class="row ">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 bg-primary pinside40 ">
-                    <div class="contact-info ">
-                        <div class="logo mb40 ">
-                            <a href="#"><img src="../../../../assets/client/images/logo-white.png " class="img-responsive " alt=" "></a>
-                        </div>
-                        <ul class="listnone ">
-                            <li><i class="icon-placeholder icon-secondary icon-2x "></i>
-                                <address>
-                                    101 St Independacy, <br>
-                                    Antananarivo, MDG 261
-                                </address>
-                            </li>
-                            <li><i class=" icon-phone-call icon-secondary icon-2x "></i>
-                                <p>+261 20 22 120 10</p>
-                            </li>
-                            <li><i class="icon-email icon-secondary icon-2x "></i>
-                                <p>beautysalon&#64;gmail.com</p>
-                            </li>
-                            <li><i class=" icon-clock icon-secondary icon-2x "></i>
-                                <p>Lun-Sam : 07h-19h</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 outline pinside40 ">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 outline pinside40 ">
                     <div class="row ">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                             <h3>Choix de date & heure</h3>
@@ -139,42 +123,43 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                                 <h3>Choix d'employé responsable</h3>
                             </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb30">
                                 <div class="row">
-                                    <div *ngFor="let employe of employes" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                        <div class="price-block outline mb30">
-                                            <div class="price-img"><img src="../../../../assets/client/images/pricing-img-1.jpg" class="img-responsive" alt=""></div>
-                                            <div class="price-content pinside30">
-                                                <h4 class="price-title mb10 text-center">{{ employe.nom }}</h4>
-                                                <div class="text-center">
-                                                    <input type="radio" id="{{ employe.idEmploye }}" formControlName="idEmploye" value="{{ employe.idEmploye }}">
-                                                </div>
-                                            </div>
+                                    <div *ngFor="let employe of employes" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                        <div class="text-center">
+                                            <input type="radio" class="form-control" id="{{ employe.idEmploye }}" formControlName="idEmploye" value="{{ employe.idEmploye }}"> {{ employe.nom }}
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <hr/>
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <h3>Choix de services</h3>
                             </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex align-items-right mb30">
                                 <div class="row">
-                                    <div *ngFor="let service of services; let i=index" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                        <div class="price-block outline mb30">
-                                            <div class="price-img"><img src="../../../../assets/client/images/pricing-img-1.jpg" class="img-responsive" alt=""></div>
-                                            <div class="price-content pinside30">
-                                                <h4 class="price-title mb10 text-center">{{ service.description }}</h4>
-                                                <ul class="listnone mb40 text-uppercase">
-                                                    <li>Prix .............. <span class="meta-price">{{ service.prix
-                                                            }}Ar</span></li>
-                                                    <li>Duree ............... <span class="meta-price">{{
-                                                            service.dureeMinute }}min</span></li>
-                                                </ul>
-                                                <div class="text-center"><label class="switch"><input
-                                                            [value]="service._idService" (change)="onChange($event)"
-                                                            type="checkbox" class="form-control"><span
-                                                            class="slider round"></span></label></div>
+                                    <div cdkDropListGroup>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <h4 style="color: #D92569;">Services disponibles</h4>
+                                            <div cdkDropList [cdkDropListData]="todo" class="example-list"
+                                                (cdkDropListDropped)="drop($event)">
+                                                @for (service of todo; track service) {
+                                                <div class="example-box d-flex align-items-right" cdkDrag>
+                                                    <h5>{{service["description"]}}</h5>
+                                                    <h6>{{ service["dureeMinute"] }}min / {{ service["prix"] }}Ar</h6>
+                                                </div>
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <h4 style="color: #D92569;">Services choisies</h4>
+                                            <div cdkDropList [cdkDropListData]="done" class="example-list"
+                                                (cdkDropListDropped)="drop($event)">
+                                                @for (service of done; track service) {
+                                                <div class="example-box d-flex align-items-right" cdkDrag>
+                                                    <h5>{{service["description"]}}</h5>
+                                                    <h6>{{ service["dureeMinute"] }}min / {{ service["prix"] }}Ar</h6>
+                                                </div>
+                                                }
                                             </div>
                                         </div>
                                     </div>
@@ -198,10 +183,13 @@
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
                     <div class="footer-widget bg-white pinside30 mb30 ">
                         <div class="logo mb30 ">
-                            <a href="images/logo.png "><img src="../../../../assets/client/images/logo.png " class="img-responsive " alt=" "></a>
+                            <a href="images/logo.png "><img src="../../../../assets/client/images/logo.png "
+                                    class="img-responsive " alt=" "></a>
                         </div>
                         <p class="mb30">Bien plus qu'un salon, une parenthèse de bien-être et de beauté</p>
-                        <div class="footer-social "><a href="# "><i class="fa fa-twitter "></i></a><a href="# "><i class="fa fa-facebook "></i></a><a href="# "><i class="fa fa-google-plus "></i></a></div>
+                        <div class="footer-social "><a href="# "><i class="fa fa-twitter "></i></a><a href="# "><i
+                                    class="fa fa-facebook "></i></a><a href="# "><i class="fa fa-google-plus "></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-offset-1 col-lg-3 col-md-offset-1 col-md-3 col-sm-6 col-xs-12 ">
@@ -220,7 +208,8 @@
                                 <div class="row ">
                                     <div class="col-md-2 "><i class="fa fa-envelope-o "></i></div>
                                     <div class="col-md-10 ">
-                                        <h4 class="mail-text "><a href="contact.html ">beautysalon&#64;gmail.com</a></h4>
+                                        <h4 class="mail-text "><a href="contact.html ">beautysalon&#64;gmail.com</a>
+                                        </h4>
                                     </div>
                                 </div>
                             </li>
@@ -240,7 +229,8 @@
                         <h2 class="footer-title ">Liens rapides</h2>
                         <ul class="listnone ">
                             <li><i class="fa fa-caret-right "></i><a routerLink="/client_homepage">Homepage</a></li>
-                            <li><i class="fa fa-caret-right "></i><a routerLink="/client_special_offers">Offres speciales</a></li>
+                            <li><i class="fa fa-caret-right "></i><a routerLink="/client_special_offers">Offres
+                                    speciales</a></li>
                             <li><i class="fa fa-caret-right "></i><a routerLink="/client_booking">Reservation</a></li>
                             <li><i class="fa fa-caret-right "></i><a routerLink="/client_appointment_history">Historique
                                     des rendez-vous</a></li>
@@ -255,7 +245,8 @@
     <div class="tiny-footer ">
         <div class="container ">
             <div class="row ">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">Team: <a href="#">RAKOTOARISOA Jean Etienne</a> | <a href="#">RANARIVELO Hubert Hery Nantenaina</a></div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">Team: <a href="#">RAKOTOARISOA Jean
+                        Etienne</a> | <a href="#">RANARIVELO Hubert Hery Nantenaina</a></div>
             </div>
         </div>
     </div>
