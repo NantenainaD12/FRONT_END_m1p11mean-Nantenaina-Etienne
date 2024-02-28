@@ -154,6 +154,8 @@ readFile(event: Event) {
     reader.readAsDataURL(file);
   }
 }
-
+randomIndex() {
+  return Math.floor(Math.random() * 3) + 1;
+}
 
 }

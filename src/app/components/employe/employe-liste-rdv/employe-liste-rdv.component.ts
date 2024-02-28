@@ -24,7 +24,9 @@ export class EmployeListeRdvComponent {
   ngOnInit() {
     this.GetAllRDV();
   }
-
+  randomIndex() {
+    return Math.floor(Math.random() * 3) + 1;
+  }
 
   GetAllRDV() {
     const token = localStorage.getItem('token');

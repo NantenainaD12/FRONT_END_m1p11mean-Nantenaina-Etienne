@@ -27,7 +27,7 @@ export class TaskDoneDailyComponent {
     ///JUST FOR TEST
     const specificDate = new Date('2024-02-16T00:00:00.000Z');
 
-    const startDate = specificDate.toISOString();
+    const startDate = currentDate.toISOString();
     const endDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).toISOString();
     const url = `${this.apiUrlService.getUrl()}Employe/rdvs_done_daily_with_commission/${idEmploye}?datedebut=${startDate}&datefin=${endDate}`;
     const token = localStorage.getItem('token');

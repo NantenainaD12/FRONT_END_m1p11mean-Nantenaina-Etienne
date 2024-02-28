@@ -43,6 +43,7 @@
                             <li><a routerLink="/ChiffreAffaireMonthlyComponent">Case Number Monthly</a></li>
                                <li><a routerLink="/BeneficeMonthlyComponent">Benefice Monthly</a></li>
                             <li><a routerLink="/AverageWorksEmployerComponent">Average Works</a></li>
+                            
                           </ul>
                         </li>
                       </ul>
@@ -76,32 +77,23 @@
   <!-- ================ contact section start ================= -->
   <section class="contact-section">
     <div class="container">
-      <h2>Case Number day and mounth</h2>
-      <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" style="margin-top: 80px;">
-        <label for="jour">Day</label>
-        <input id="jour" type="number" formControlName="jour">
-
-        <label for="mois">Mounth</label>
-        <input id="mois" type="number" formControlName="mois">
-
-        <button type="submit">Search</button>
-      </form>
-
-
+      <h2>Average time's works</h2>
       <table style="margin-top: 50px;">
         <thead>
           <tr>
-            <th>Mounth</th>
-            <th>Day </th>
-            <th>Count</th>
+            <th>Employe</th>
+            <th>totalMinutes</th>
+            <th>count</th>
+            <th>Average</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>{{moisNoms[data.mois-1]}}</td>
-            <td>{{data.jour  }}</td>
-            <td>{{data.total }} Ar</td>
-          </tr>
+            <tr *ngFor="let data of data">
+                <td>{{data.employeeName }}</td>
+                <td>{{data.totalMinutes }} Minutes</td>
+                <td>{{data.count }} </td>
+                <td>{{data.moyenneMinutes }} Minutes</td>
+              </tr>
         </tbody>
       </table>
 

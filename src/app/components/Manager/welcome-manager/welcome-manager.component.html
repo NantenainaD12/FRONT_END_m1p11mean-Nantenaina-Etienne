@@ -41,7 +41,8 @@
                             <li><a routerLink="/CountReservationMounthlyComponent">Reservation Monthly</a></li>
                             <li><a routerLink="/ChiffreAffaireDailyComponent">Case Number daily</a></li>
                             <li><a routerLink="/ChiffreAffaireMonthlyComponent">Case Number Monthly</a></li>
-                            <li><a routerLink="/BeneficeMonthlyComponent">Benefice Monthly</a></li>
+                               <li><a routerLink="/BeneficeMonthlyComponent">Benefice Monthly</a></li>
+                            <li><a routerLink="/AverageWorksEmployerComponent">Average Works</a></li>
                           </ul>
                         </li>
                       </ul>
@@ -80,11 +81,9 @@
   <div class="service_area">
     <div class="container">
       <div class="row justify-content-center ">
-        <div class="col-lg-6 col-md-10">
+        <div class="col-lg-6 col-md-10" style="margin-bottom: 60px;">
           <div class="section_title text-center mb-55">
             <h3>Our Services</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore</p>
           </div>
         </div>
       </div>
@@ -92,7 +91,11 @@
         <div class="col-lg-4 col-md-6" *ngFor="let service of dataSource">
           <div class="single_service">
             <div class="service_thumb">
-              <img [src]="service.Photo" class="profile-pic">
+              <!-- <img [src]="service.Photo" class="profile-pic" style="width: 360;height: 206;"> -->
+              <!-- <img src="assets/employe/img/service/2.png" style="width: 360;height: 206;"> -->
+              <ng-container *ngIf="randomIndex">
+                <img src="assets/employe/img/service/{{randomIndex()}}.png" alt="">
+              </ng-container>
             </div>
             <div class="service_content text-center">
               <div class="icon">

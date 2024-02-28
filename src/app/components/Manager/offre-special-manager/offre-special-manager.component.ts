@@ -18,6 +18,7 @@ import emailjs from '@emailjs/browser'
 export class OffreSpecialManagerComponent {
   serviceForm: FormGroup;
   dataSource: any;
+  servicesList: any;
   constructor(public fb: FormBuilder, public apiUrlService: ApiUrlService, public http: HttpClient, private router: Router) {
     this.serviceForm = this.fb.group({
       description: ['', Validators.required],
@@ -34,6 +35,7 @@ export class OffreSpecialManagerComponent {
   }
   ngOnInit() {
     this.GetAllOffre();
+    this.GetAllServices();
   }
 
   CreateOffreSpecial(serviceData: any) {
@@ -66,14 +68,13 @@ export class OffreSpecialManagerComponent {
   GetAllOffre() {
     const token = localStorage.getItem('token');
     const currentDate = new Date();
-    const specificDate = new Date('2024-03-16T00:00:00.000Z');
-    const specificDate2 = new Date('2024-03-16T00:00:00.000Z');
-    const startDate = specificDate.toISOString();
-    const EndDate = specificDate2.toISOString();
+    // const specificDate = new Date('2024-02-16T00:00:00.000Z');
+    // const specificDate2 = new Date('2024-03-16T00:00:00.000Z');
+    // const startDate = specificDate.toISOString();
+    // const EndDate = specificDate2.toISOString();
 
     const url = `${this.apiUrlService.getUrl()}Manager/getOffreSpecialValid/2?dateBegin=${currentDate}&dateEnd=${currentDate}`;
 
-    console.log("debut" + startDate + " end" + EndDate);
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     // Effectuez la requête GET
@@ -99,5 +100,24 @@ export class OffreSpecialManagerComponent {
       remise: '-' + (service.pourcentageRemise * 100) + '%',
       service: service.nomService,
     });
+  }
+  GetAllServices() {
+    const token = localStorage.getItem('token');
+
+    const url = this.apiUrlService.getUrl() + 'Manager/GetAllServices';
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    // Effectuez la requête GET
+    this.http.get(url, { headers })
+      .subscribe((data: any) => {
+        if (data && data.length > 0) {
+          this.servicesList = data;
+          console.log(this.servicesList);
+        }
+        else {
+          console.error('Aucun service de rendez-vous trouvé avec cet idRdv');
+        }
+      });
   }
 }

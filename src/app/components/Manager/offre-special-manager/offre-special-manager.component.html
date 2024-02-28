@@ -41,7 +41,10 @@
                             <li><a routerLink="/CountReservationMounthlyComponent">Reservation Monthly</a></li>
                             <li><a routerLink="/ChiffreAffaireDailyComponent">Case Number daily</a></li>
                             <li><a routerLink="/ChiffreAffaireMonthlyComponent">Case Number Monthly</a></li>
-                            <li><a routerLink="/BeneficeMonthlyComponent">Benefice Monthly</a></li>
+                               <li><a routerLink="/BeneficeMonthlyComponent">Benefice Monthly</a></li>
+                            <li><a routerLink="/AverageWorksEmployerComponent">Average Works</a></li>
+                            <li><a routerLink="/AverageWorksEmployerComponent">Average Works</a></li>
+                            
                           </ul>
                         </li>
                       </ul>
@@ -145,9 +148,14 @@
                 <label for="dateFin">End Date</label>
                 <input id="dateFin" type="date" formControlName="dateFin">
               </div>
-              <div class="single_field m-0">
+              <div class="single_field">
                 <label for="idService">Services</label>
-                <input id="idService" type="number" formControlName="idService">
+                <select id="idService" formControlName="idService">
+                  <option value="" disabled selected>Select a Service</option>
+                  <option *ngFor="let service of servicesList" [value]="service._idService">
+                    {{ service.description }}
+                  </option>
+                </select>
               </div>
               <div class="single_field">
 

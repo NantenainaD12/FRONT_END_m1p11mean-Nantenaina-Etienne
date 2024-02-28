@@ -4,6 +4,7 @@ import { ClientLoginComponent } from './components/client/login/login.component'
 import { EmployeLoginComponentComponent } from './components/employe/employeLoginComponent/employe-login-component.component';
 import { EmployeListeRdvComponent } from './components/employe/employe-liste-rdv/employe-liste-rdv.component';
 import { ServiceManagerComponent } from './components/Manager/service-manager/service-manager.component';
+import { AverageWorksEmployerComponent } from './components/Manager/average-works-employer/average-works-employer.component';
 import { ManageprofilComponent } from './components/employe/manageprofil/manageprofil.component';
 import { WelcomeManagerComponent } from './components/Manager/welcome-manager/welcome-manager.component';
 import { ChiffreAffaireMonthlyComponent } from './components/Manager/chiffre-affaire-monthly/chiffre-affaire-monthly.component';
@@ -57,6 +58,7 @@ export const routes: Routes = [
     { path: 'ChiffreAffaireMonthlyComponent', component: ChiffreAffaireMonthlyComponent },
     { path: 'OffreSpecialManagerComponent', component: OffreSpecialManagerComponent },
     { path: 'BeneficeMonthlyComponent', component: BeneficeMonthlyComponent },
+    { path: 'AverageWorksEmployerComponent', component: AverageWorksEmployerComponent },
 
     
 
