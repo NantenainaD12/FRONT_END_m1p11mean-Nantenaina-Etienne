@@ -92,7 +92,7 @@
         <div class="col-lg-4 col-md-6" *ngFor="let service of dataSource">
           <div class="single_service">
             <div class="service_thumb">
-              <img src="assets/employe/img/service/2.png" alt="">
+              <img [src]="service.Photo" class="profile-pic">
             </div>
             <div class="service_content text-center">
               <div class="icon">

@@ -39,9 +39,7 @@ export class WelcomeManagerComponent {
 
 
   onSubmit(): void {
-    if (this.serviceForm.valid) {
       this.CreateService(this.serviceForm.value);
-    }
   }
   onSubmitEmployee(): void {
     if (this.employeeForm.valid) {
@@ -75,6 +73,7 @@ export class WelcomeManagerComponent {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     // Préparez le corps de la requête avec les données du service
+      console.log("phpto ");
     const body = {
       description: serviceData.description,
       dureeMinute: serviceData.dureeMinute,
@@ -141,14 +140,20 @@ export class WelcomeManagerComponent {
 readFile(event: Event) {
   const reader = new FileReader();
   const input = event.target as HTMLInputElement;
-
   if (input.files && input.files[0]) {
     const file = input.files[0];
     reader.onloadend = () => {
-      this.serviceForm.value.Photo = reader.result as string; // Convertit l'image en base64
+      // Convertit l'image en base64
+      const base64Image = reader.result as string;
+
+      // Stocke la valeur dans la propriété Base64Photo du formulaire
+      console.log("aona ahh");
+      
+      this.serviceForm.patchValue({ Photo: base64Image });
     };
     reader.readAsDataURL(file);
   }
 }
+
 
 }
