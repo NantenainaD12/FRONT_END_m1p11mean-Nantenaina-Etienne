@@ -37,7 +37,7 @@
                         <li><a routerLink="/OffreSpecialManagerComponent">Special Offer</a></li>
                         <li><a href="#">Stats <i class="ti-angle-down"></i></a>
                           <ul class="submenu">
-                            <li><a routerLink="/CountReservationDaymounthComponent">Reservation daily</a></li>       
+                            <li><a routerLink="/CountReservationDaymounthComponent">Reservation daily</a></li>
                             <li><a routerLink="/CountReservationMounthlyComponent">Reservation Monthly</a></li>
                             <li><a routerLink="/ChiffreAffaireDailyComponent">Case Number daily</a></li>
                             <li><a routerLink="/ChiffreAffaireMonthlyComponent">Case Number Monthly</a></li>
@@ -102,6 +102,9 @@
               <p><strong> Duree :</strong> {{service.dureeMinute }} Minutes </p>
               <p><strong> Price : </strong> {{service.prix }} Ar </p>
               <p> <strong> Commission: </strong> {{service.commission }} % </p>
+              <p> <button style="background-color: rgb(240, 94, 49);"
+                  (click)="deleteService(service)">Delete</button>
+              </p>
             </div>
           </div>
         </div>

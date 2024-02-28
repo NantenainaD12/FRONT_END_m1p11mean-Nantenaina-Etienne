@@ -126,6 +126,7 @@
             <td>{{dataDepense.description }}</td>
             <td>{{dataDepense.dateDepense | date:'EEEE dd MMMM yyyy'}} </td>
             <td>{{dataDepense.montant }} Ar</td>
+            <td><button style="background-color: rgb(240, 94, 49);" (click)="deleteDepense(dataDepense)">Delete</button></td>
           </tr>
         </tbody>
       </table>

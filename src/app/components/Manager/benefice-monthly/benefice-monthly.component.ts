@@ -68,8 +68,6 @@ export class BeneficeMonthlyComponent {
     
     if (this.depenseForm.valid) {
       this.CreateDepense(this.depenseForm.value);
-      this.getBeneficeMonthly(this.searchForm.value.mois);
-      this.GetDepensemonthly(this.searchForm.value.mois);
     }
   }
   
@@ -92,8 +90,8 @@ export class BeneficeMonthlyComponent {
       .subscribe((data: any) => {
         console.log(data);
         this.depenseForm.reset();
-        //this.GetAllOffre();
-        // Vous pouvez ajouter ici des actions à effectuer après la création du service
+        this.GetDepensemonthly(this.searchForm.value.mois);
+        this.getBeneficeMonthly(this.searchForm.value.mois);
         alert('Depense created');
       }, (error) => {
         console.error('Erreur lors de la création du service :', error);
@@ -118,5 +116,27 @@ export class BeneficeMonthlyComponent {
         console.error('Erreur lors de la récupération des données de réservation :', error);
       });
   }
+
+  deleteDepense(depense: any) {
+    const url = `${this.apiUrlService.getUrl()}Manager/DeleteDepense/${depense.idDepense}`;
+
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    // Perform the DELETE request
+    this.http.delete(url, { headers })
+        .subscribe(
+            () => {
+              alert("Depense deleted");
+                console.log(`Depense with ID ${depense.idDepense} deleted successfully.`);
+                this.getBeneficeMonthly(this.searchForm.value.mois);
+                this.GetDepensemonthly(this.searchForm.value.mois);
+            },
+            (error) => {
+                console.error('Error while deleting depense:', error);
+                // Handle error cases (e.g., display an error message).
+            }
+        );
+}
   
 }

@@ -96,8 +96,6 @@ export class WelcomeManagerComponent {
   ngOnInit() {
     this.GetAllServices();
   }
-
-
   GetAllServices() {
     const token = localStorage.getItem('token');
 
@@ -117,5 +115,25 @@ export class WelcomeManagerComponent {
         }
       });
   }
+  deleteService(Service: any) {
+    const url = `${this.apiUrlService.getUrl()}Manager/DeleteService/${Service._idService}`;
+
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    // Perform the DELETE request
+    this.http.post(url, { headers })
+        .subscribe(
+            () => {
+              alert("Service deleted");
+                console.log(`Service with ID ${Service._idService} deleted successfully.`);
+                this.GetAllServices();
+            },
+            (error) => {
+                console.error('Error while deleting depense:', error);
+                // Handle error cases (e.g., display an error message).
+            }
+        );
+}
 
 }
