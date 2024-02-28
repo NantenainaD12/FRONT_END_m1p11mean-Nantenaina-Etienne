@@ -21,6 +21,7 @@ export class WelcomeManagerComponent {
   constructor(public fb: FormBuilder, public apiUrlService: ApiUrlService, public http: HttpClient, private router: Router) {
     this.serviceForm = this.fb.group({
       description: ['', Validators.required],
+      Photo: ['', Validators.required],
       dureeMinute: ['', Validators.required],
       prix: ['', Validators.required],
       commission: ['', Validators.required]
@@ -78,7 +79,8 @@ export class WelcomeManagerComponent {
       description: serviceData.description,
       dureeMinute: serviceData.dureeMinute,
       prix: serviceData.prix,
-      commission: serviceData.commission
+      commission: serviceData.commission,
+      Photo: serviceData.Photo
     };
 
     // Effectuez la requête POST
@@ -134,6 +136,19 @@ export class WelcomeManagerComponent {
                 // Handle error cases (e.g., display an error message).
             }
         );
+}
+
+readFile(event: Event) {
+  const reader = new FileReader();
+  const input = event.target as HTMLInputElement;
+
+  if (input.files && input.files[0]) {
+    const file = input.files[0];
+    reader.onloadend = () => {
+      this.serviceForm.value.Photo = reader.result as string; // Convertit l'image en base64
+    };
+    reader.readAsDataURL(file);
+  }
 }
 
 }

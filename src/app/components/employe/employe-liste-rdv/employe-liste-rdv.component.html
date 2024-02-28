@@ -164,17 +164,16 @@
         <div class="col-lg-6 col-md-10">
           <div class="section_title text-center mb-55">
             <h3>Your Appointment</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore</p>
+            <p>Take a look on these Appointment waiting for you</p>
           </div>
         </div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-6" *ngFor="let rdv of dataSource">
+        <div class="col-lg-4 col-md-6" *ngFor="let rdv of dataSource; let i = index">
           <a [routerLink]="['/RdvServiceComponent', rdv._idRdv]">
           <div class="single_service">
             <div class="service_thumb">
-              <img src="assets/employe/img/service/2.png" alt="">
+              <img src="assets/employe/img/service/{{i+1}}.png" alt="">
             </div>
             <div class="service_content text-center">
               <div class="icon">

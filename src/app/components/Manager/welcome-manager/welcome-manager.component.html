@@ -127,6 +127,10 @@
           <div class="appoint_ment_form pl-68">
             <form [formGroup]="serviceForm" (ngSubmit)="onSubmit()">
               <div class="single_field">
+                <label for="Photo">Photo</label>
+                <input type="file" id="Photo" (change)="readFile($event)" name="Photo" placeholder="image du service">
+              </div>
+              <div class="single_field">
                 <label for="description">Description</label>
                 <input id="description" type="text" formControlName="description">
               </div>
@@ -138,6 +142,7 @@
                 <label for="prix">Price (Ar)</label>
                 <input id="prix" type="number" formControlName="prix">
               </div>
+    
               <div class="single_field">
 
                 <label for="commission">Commission</label>

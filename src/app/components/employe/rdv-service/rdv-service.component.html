@@ -78,10 +78,11 @@
         </div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-6" *ngFor="let rdv of rdvServices">
+        <div class="col-lg-4 col-md-6" *ngFor="let rdv of rdvServices; let i = index">
           <div class="single_service">
             <div class="service_thumb">
-              <img src="assets/employe/img/service/1.png" alt="">
+
+              <img [src]="rdv.Photo" class="profile-pic">
             </div>
             <div class="service_content text-center">
               <div class="icon">
