@@ -18,11 +18,6 @@
 </head>
 
 <body>
-  <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
-
-  <!-- header-start -->
   <header>
     <div class="header-area ">
       <div id="sticky-header" class="main-header-area">
@@ -42,7 +37,7 @@
                     <nav>
                       <ul id="navigation">
                         <li><a routerLink="/all_rdv_for_me">home </a></li>
-                        <li><a href="#"> Profil <i class="ti-angle-down"></i></a>
+                        <li style="color: white;">Profil <i class="ti-angle-down"></i>
                           <ul class="submenu">
                             <!-- <li><a routerLink="/ManageprofilComponent">Manage </a></li> -->
                             <li><a routerLink="/TaskDoneDailyComponent">daily Works</a></li>
@@ -54,6 +49,11 @@
                   <div class="book_room">
                     <div class="book_btn">
                       <a class="popup-with-form" href="#test-form" (click)="getEmployeeData()">Update</a>
+                    </div>
+                  </div>
+                  <div class="book_room" style="margin-left: 20px;">
+                    <div class="book_btn" style="color: red;">
+                      <a class="popup-with-form" (click)="Disconnect()">Disconnect</a>
                     </div>
                   </div>
                 </div>

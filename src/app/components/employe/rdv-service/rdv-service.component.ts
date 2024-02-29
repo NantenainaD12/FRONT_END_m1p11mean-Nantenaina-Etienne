@@ -35,7 +35,11 @@ export class RdvServiceComponent {
 
   getRdvServicesBy_idRdv(idRdv: string) {
     const url = this.apiUrlService.getUrl() + 'Employe/getRdvServiceBy_idRdv/' + idRdv;
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token'); 
+if (!token) {
+    // Rediriger vers la page d'accueil si le token est nul
+    window.location.href = '/';
+  }
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     this.http.get(url, { headers })
       .subscribe((data: any) => {

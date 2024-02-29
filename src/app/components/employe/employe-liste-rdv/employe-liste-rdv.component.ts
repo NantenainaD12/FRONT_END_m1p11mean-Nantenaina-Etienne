@@ -30,6 +30,10 @@ export class EmployeListeRdvComponent {
 
   GetAllRDV() {
     const token = localStorage.getItem('token');
+    if (!token) {
+      // Rediriger vers la page d'accueil si le token est nul
+      window.location.href = '/';
+    }
     const idEmploye = localStorage.getItem('idEmploye');
 
     const url = this.apiUrlService.getUrl() + 'Employe/rdvs/' + idEmploye;
@@ -50,6 +54,10 @@ export class EmployeListeRdvComponent {
 
   UpdateEtatRdv(idRdv: Number) {
     const token = localStorage.getItem('token');
+    if (!token) {
+      // Rediriger vers la page d'accueil si le token est nul
+      window.location.href = '/';
+    }
 
     const url = this.apiUrlService.getUrl() + 'Employe/updateEtatFini/' + idRdv;
 
@@ -90,6 +98,10 @@ export class EmployeListeRdvComponent {
   updateEmployee() {
     const idEmploye = localStorage.getItem('idEmploye');
     const token = localStorage.getItem('token');
+    if (!token) {
+      // Rediriger vers la page d'accueil si le token est nul
+      window.location.href = '/';
+    }
     const url = this.apiUrlService.getUrl() + 'Employe/updateEmployee/' + idEmploye;
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     this.http.post(url, this.employee, { headers })
@@ -104,6 +116,10 @@ export class EmployeListeRdvComponent {
     const idEmploye = localStorage.getItem('idEmploye');
     const url = this.apiUrlService.getUrl() + 'Employe/getEmployeById/' + idEmploye;
     const token = localStorage.getItem('token');
+    if (!token) {
+      // Rediriger vers la page d'accueil si le token est nul
+      window.location.href = '/';
+    }
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     this.http.get(url, { headers })
       .subscribe((data: any) => {
@@ -126,6 +142,14 @@ export class EmployeListeRdvComponent {
       montant: rdv.montantTotalPaye,
       nom_employe: rdv.employeeName,
     });
+  }
+
+  Disconnect() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('idEmploye');
+
+    // Redirige vers le composant Navbar
+    this.router.navigate(['']);
   }
 
 

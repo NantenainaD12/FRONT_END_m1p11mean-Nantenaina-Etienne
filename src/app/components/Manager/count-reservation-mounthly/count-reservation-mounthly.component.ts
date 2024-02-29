@@ -44,7 +44,10 @@ export class CountReservationMounthlyComponent {
   }
 
   ngOnInit() {
-    this.getCountReservation_monthly(2);
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth() + 1; // Les mois sont indexés à partir de 0 en JavaScript, donc nous ajoutons 1
+  
+    this.getCountReservation_monthly(currentMonth);
   }
 
   onSubmit(): void {

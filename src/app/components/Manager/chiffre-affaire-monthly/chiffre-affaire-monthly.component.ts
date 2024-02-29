@@ -18,7 +18,7 @@ export class ChiffreAffaireMonthlyComponent {
   data: any;
   searchForm: FormGroup;
   moisNoms = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  constructor(public fb: FormBuilder, public apiUrlService: ApiUrlService, public http: HttpClient, private router: Router) { 
+  constructor(public fb: FormBuilder, public apiUrlService: ApiUrlService, public http: HttpClient, private router: Router) {
     this.searchForm = this.fb.group({
       mois: ['', Validators.required]
     });
@@ -30,19 +30,22 @@ export class ChiffreAffaireMonthlyComponent {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     // Préparez le corps de la requête avec le jour et le mois
-    const body = {mois: mois };
+    const body = { mois: mois };
 
     // Effectuez la requête POST
     this.http.post(url, body, { headers })
       .subscribe((data: any) => {
-        this.data = data ;
+        this.data = data;
         console.table(this.data);
       }, (error) => {
         console.error('Erreur lors de la récupération des données de réservation :', error);
       });
   }
   ngOnInit() {
-    this.getChiffreAffaire_monthly(2);
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth() + 1; // Les mois sont indexés à partir de 0 en JavaScript, donc nous ajoutons 1
+
+    this.getChiffreAffaire_monthly(currentMonth);
   }
 
   onSubmit(): void {

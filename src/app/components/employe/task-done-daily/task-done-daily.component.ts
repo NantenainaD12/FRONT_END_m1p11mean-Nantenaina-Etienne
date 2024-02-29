@@ -24,13 +24,20 @@ export class TaskDoneDailyComponent {
     const idEmploye = localStorage.getItem('idEmploye');
     // get current date and send to the request
     const currentDate = new Date();
+    currentDate.setHours(0, 0, 0, 0);
+
     ///JUST FOR TEST
     const specificDate = new Date('2024-02-16T00:00:00.000Z');
 
     const startDate = currentDate.toISOString();
+    console.log(startDate);
     const endDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).toISOString();
     const url = `${this.apiUrlService.getUrl()}Employe/rdvs_done_daily_with_commission/${idEmploye}?datedebut=${startDate}&datefin=${endDate}`;
     const token = localStorage.getItem('token');
+    if (!token) {
+      // Rediriger vers la page d'accueil si le token est nul
+      window.location.href = '/';
+    }
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     this.http.get(url, { headers })
       .subscribe((data: any) => {

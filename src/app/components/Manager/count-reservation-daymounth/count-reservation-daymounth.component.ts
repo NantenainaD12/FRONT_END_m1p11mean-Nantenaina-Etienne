@@ -46,7 +46,11 @@ export class CountReservationDaymounthComponent {
 
   }
   ngOnInit() {
-    this.getCountReservation_Day_month(16, 2);
+    const currentDate = new Date();
+    const currentDay = currentDate.getDate(); // Le jour du mois (de 1 à 31)
+    const currentMonth = currentDate.getMonth() + 1; // Les mois sont indexés à partir de 0 en JavaScript, donc nous ajoutons 1
+  
+    this.getCountReservation_Day_month(currentDay, currentMonth);
   }
 
   onSubmit(): void {

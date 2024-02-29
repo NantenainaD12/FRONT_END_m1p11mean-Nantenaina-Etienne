@@ -18,7 +18,7 @@ export class ChiffreAffaireDailyComponent {
   data: any;
   searchForm: FormGroup;
   moisNoms = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  constructor(public fb: FormBuilder, public apiUrlService: ApiUrlService, public http: HttpClient, private router: Router) { 
+  constructor(public fb: FormBuilder, public apiUrlService: ApiUrlService, public http: HttpClient, private router: Router) {
     this.searchForm = this.fb.group({
       jour: ['', Validators.required],
       mois: ['', Validators.required]
@@ -36,14 +36,18 @@ export class ChiffreAffaireDailyComponent {
     // Effectuez la requête POST
     this.http.post(url, body, { headers })
       .subscribe((data: any) => {
-        this.data = data ;
+        this.data = data;
         console.table(this.data);
       }, (error) => {
         console.error('Erreur lors de la récupération des données de réservation :', error);
       });
   }
   ngOnInit() {
-    this.getChiffreAffaire_Day_month(16, 2);
+    const currentDate = new Date();
+    const currentDay = currentDate.getDate(); // Le jour du mois (de 1 à 31)
+    const currentMonth = currentDate.getMonth() + 1; // Les mois sont indexés à partir de 0 en JavaScript, donc nous ajoutons 1
+
+    this.getChiffreAffaire_Day_month(currentDay, currentMonth);
   }
 
   onSubmit(): void {

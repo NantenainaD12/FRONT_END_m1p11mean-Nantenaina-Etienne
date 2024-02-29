@@ -43,7 +43,11 @@ export class ManageprofilComponent {
   // Modifiez votre fonction updateEmployee pour inclure l'image en base64
   updateEmployee() {
     const idEmploye = localStorage.getItem('idEmploye');
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token'); 
+if (!token) {
+    // Rediriger vers la page d'accueil si le token est nul
+    window.location.href = '/';
+  }
     const url = this.apiUrlService.getUrl() + 'Employe/updateEmployee/' + idEmploye;
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     this.http.post(url, this.employee, { headers })
@@ -62,7 +66,11 @@ export class ManageprofilComponent {
   getEmployeeData() {
     const idEmploye = localStorage.getItem('idEmploye');
     const url = this.apiUrlService.getUrl() + 'Employe/getEmployeById/' + idEmploye;
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token'); 
+if (!token) {
+    // Rediriger vers la page d'accueil si le token est nul
+    window.location.href = '/';
+  }
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     this.http.get(url, { headers })
       .subscribe((data: any) => {
